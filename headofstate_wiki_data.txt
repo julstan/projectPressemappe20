@@ -10,3 +10,20 @@ SELECT ?pm20idLabel ?personLabel ?posiLabel  ?birthday ?deathday ?starttime ?end
   SERVICE wikibase:label { bd:serviceParam wikibase:language "de,en". }
   
 }
+
+hier sind die starttime und endtime dabei:
+(allerdings sind ein paar mal Gouverneurs dabei)
+hab mich orientiert an: https://stackoverflow.com/questions/36158651/using-qualifiers-in-wikidata-sparql
+
+SELECT ?pm20idLabel ?person ?personLabel ?posiLabel  ?birthday ?deathday ?starttime ?endtime ?bild WHERE {
+  ?person wdt:P4293 ?pm20id.
+  OPTIONAL {?person wdt:P569 ?birthday} .
+  OPTIONAL {?person wdt:P570 ?deathday }.
+  OPTIONAL {?person wdt:P18 ?bild } .
+  ?person wdt:P39 ?posi.
+  ?posi wdt:P279 wd:Q2285706.
+  OPTIONAL { ?person wdt:P580 ?starttime. }
+  OPTIONAL { ?person wdt:P582 ?endtime. }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "de,en". }
+  
+} ORDER BY ?pm20idLabel
