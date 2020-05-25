@@ -1,3 +1,3 @@
 # projectPressemappe20
 
-Projekt aus dem 4. Semester
+Projekt aus dem 4. Semester: Timeline mit Staatsoberhäuptern
