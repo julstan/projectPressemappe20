@@ -29,3 +29,21 @@ SELECT ?pm20idLabel ?person ?personLabel ?birthday ?deathday ?picture ?position_
     
   SERVICE wikibase:label { bd:serviceParam wikibase:language "de,en". }
  } ORDER BY ?pm20idLabel
+ 
+ SELECT ?pm20idLabel ?person ?personLabel ?birthday ?deathday ?picture ?position_heldLabel ?start ?end ?countryLabel WHERE {
+  ?person wdt:P4293 ?pm20id.
+  OPTIONAL {?person wdt:P569 ?birthday} .
+  OPTIONAL {?person wdt:P570 ?deathday }.
+  OPTIONAL {?person wdt:P18 ?picture } .
+    
+  ?person p:P39 ?s.  # ?s is the the statement node
+           ?s ps:P39  ?position_held.  # that simulates the predicate 
+           ?position_held wdt:P279 wd:Q2285706.
+           ?position_held wdt:P17 ?country .
+           ?s pq:P580 ?start.  # this is an attribute (a qualifier)
+           ?s pq:P582 ?end.
+  
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "de,en". }
+ } ORDER BY ?pm20idLabel
+
+
