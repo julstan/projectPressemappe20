@@ -10,6 +10,8 @@
           <option value="E501" />
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
           <option value="W29" />
           <option value="E501" />
           <option value="W29" />
@@ -17,6 +19,7 @@
           <option value="W29" />
           <option value="E501" />
 >>>>>>> master
+>>>>>>> e595f4f4b1ad0580061565e1002bfbcaa4af55ea
         </list>
       </option>
     </inspection_tool>
