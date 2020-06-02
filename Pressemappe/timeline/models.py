@@ -15,7 +15,7 @@ class Person(models.Model):
     country = models.TextField ()
 
 #Überlegung: jedem Land die jeweiligen Personen zuordnen
-class Country (models.Model):
-    name = models.TextField ()
+#class Country (models.Model):
+#    name = models.TextField ()
         #Name des Landes
 
