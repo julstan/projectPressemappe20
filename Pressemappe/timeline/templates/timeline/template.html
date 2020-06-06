@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="{% static 'css/timeline.css' %}">
 </head>
 <body>
+<!---------------------Hier Testbereich-------------------------------->
+<h1>{{ object.name }}</h1>
+<p>{% if object.picture != None %}{{ object.picture}}{% else %}Kein Bild vorhanden{% endif %}</p>
+<!----------------------------------------------------->
 <h1>Staatsoberhäupter der Pressemappe des 20. Jahrhunderts</h1>
 <div class="timeline">
 
