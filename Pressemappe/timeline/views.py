@@ -1,12 +1,16 @@
 from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse
 from . import models
 from .models import Person
 # Create your views here.
 
-#Startseite wird aufgerufen unter http://localhost:8000/timeline/show#
+#Startseite wird aufgerufen unter localhost:8000#
 
-def test(request):
-    return render(request,'timeline/base.html')
+
+def test (request):
+    return render(request, "timeline/timeline.html")
+#def test(request):
+    #return HttpResponse(Person.objects.all())
 
 
 
@@ -24,7 +28,7 @@ def person_detail_view(request):
     context = {
         'person' : person,
     }
-    return render(request, "timeline/base.html", context)
+    return render(request, "timeline/timeline.html", context)
 
 #TODOS
 #Alle Datensätze holen

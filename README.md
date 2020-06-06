@@ -7,4 +7,4 @@ Projekt aus dem 4. Semester: Timeline mit Staatsoberhäuptern
 Die App heißt: timeline
 Superuser: time, PW: time
 
-Erste view: http://localhost:8000/timeline/show
+Erste view: localhost:8000
