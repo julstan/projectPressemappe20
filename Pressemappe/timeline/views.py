@@ -31,7 +31,7 @@ def person_detail_view(request):
     return render(request, "timeline/timeline.html", context)
 
 #TODOS
-#Alle Datensätze holen
-#Datensätze sortieren
+#Alle Datensätze holen -----glaub fertig Patty
+#Datensätze sortieren   -----glaub fertig Patty, ka nach was man sortiert
 #Daten in der Timeline Struktur mit Schleife anzeigen lassen (Template)
 #evtl. Funktionen ausdenken, Fehler beheben
