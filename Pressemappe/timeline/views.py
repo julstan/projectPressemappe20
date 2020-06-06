@@ -39,7 +39,7 @@ def person_detail_view(request):
 #evtl. Funktionen ausdenken, Fehler beheben
 
 def load_data ():
-    with open("../staatsoberhaupt_filter_test.csv") as csvdatei:
+    with open("staatsoberhaupt_filter_test.csv") as csvdatei:
         reader = csv.DictReader(csvdatei, delimiter=",")
         for row in reader:
             person = Person ()
