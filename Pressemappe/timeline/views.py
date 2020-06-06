@@ -10,7 +10,7 @@ def test(request):
 
 
 def person_detail_view(request):
-    obj = Person.object.get(id=1)
+    person = Person.object.order_by(id=1)
     # context = {
     #     'name' :  obj.name,
     #     'birthday' : obj.birthday,
@@ -21,8 +21,12 @@ def person_detail_view(request):
     #     'picture' : obj.picture,
     # }
     context = {
-        'object' :obj,
+        'person' : person,
     }
     return render(request, "timeline/template.html", context)
 
-
+#TODOS
+#Alle Datensätze holen
+#Datensätze sortieren
+#Daten in der Timeline Struktur mit Schleife anzeigen lassen (Template)
+#evtl. Funktionen ausdenken, Fehler beheben
