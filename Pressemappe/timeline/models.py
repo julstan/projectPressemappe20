@@ -16,7 +16,8 @@ class Person(models.Model):
 
     def __str__(self):
         return "{}: {}".format(self.name, self.position_held)
-
+    #def __str__(self):
+        #return self.name
 
 #Überlegung: jedem Land die jeweiligen Personen zuordnen
 #class Country (models.Model):

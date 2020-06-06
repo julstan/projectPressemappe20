@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from . import models
 from .models import Person
-import csv
+import csv,io
 # Create your views here.
 
 #Startseite wird aufgerufen unter localhost:8000#
@@ -56,3 +56,8 @@ def load_data ():
                 person.picture = row ["picture"]
             person.country = row ["country"]
             person.save()
+
+
+
+
+
