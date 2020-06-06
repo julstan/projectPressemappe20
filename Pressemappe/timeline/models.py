@@ -15,7 +15,8 @@ class Person(models.Model):
     country = models.TextField ()
 
     def __str__(self):
-        return f'{self.name}'
+        return "{}: {}".format(self.name, self.position_held)
+
 
 #Überlegung: jedem Land die jeweiligen Personen zuordnen
 #class Country (models.Model):

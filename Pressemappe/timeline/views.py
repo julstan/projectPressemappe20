@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from . import models
 from .models import Person
 # Create your views here.
 
@@ -10,7 +11,7 @@ def test(request):
 
 
 def person_detail_view(request):
-    person = Person.object.order_by(id=1)
+    person = models.Person.objects.order_by('birthday')
     # context = {
     #     'name' :  obj.name,
     #     'birthday' : obj.birthday,
