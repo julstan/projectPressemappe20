@@ -1,19 +1,22 @@
-from .models import Person
+'''from .models import Person
 
 import csv
 
-with open("wikidata_pm20_persons.csv", encoding = "utf-8") as csvdatei:
+with open("../../staatsoberhaupt_filter_test.csv") as csvdatei:
     reader = csv.DictReader(csvdatei, delimiter=",")
     for row in reader:
-        Person.pm20id = row ["pm20idLabel"]
-        Person.wikidata_object = row ["person"]
-        Person.name = row ["personLabel"]
-        Person.birthday = row ["birthday"]
-        Person.deathday = row ["deathday"]
-        Person.position_held = row ["position_heldLabel"]
-        Person.position_held_startdate = row ["start"]
-        Person.position_held_enddate = row ["end"]
-        Person.picture = row ["picture"]
+        Person.pm20id = row ["pm20id"]
+        Person.wikidata_object = row ["wikidata_object"]
+        Person.name = row ["name"]
+        Person.birthday = row ["birthday"] [:10]
+        if row ["deathday"] != "":
+            Person.deathday = row ["deathday"] [:10]
+        Person.position_held = row ["position_held"]
+        Person.position_held_startdate = row ["position_held_startdate"] [:10]
+        Person.position_held_enddate = row ["position_held_enddate"] [:10]
+        if row ["picture"] != "":
+            Person.picture = row ["picture"]
         Person.country = row ["countryLabel"]
 #        Person.save ()
+'''
 
