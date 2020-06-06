@@ -14,6 +14,9 @@ class Person(models.Model):
     #eventuell hier später foreign key
     country = models.TextField ()
 
+    def __str__(self):
+        return f'{self.name}'
+
 #Überlegung: jedem Land die jeweiligen Personen zuordnen
 #class Country (models.Model):
 #    name = models.TextField ()
