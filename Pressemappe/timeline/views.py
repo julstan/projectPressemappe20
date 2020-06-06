@@ -6,7 +6,7 @@ from .models import Person
 #Startseite wird aufgerufen unter http://localhost:8000/timeline/show#
 
 def test(request):
-    return render(request,'timeline/template.html')
+    return render(request,'timeline/base.html')
 
 
 
@@ -24,7 +24,7 @@ def person_detail_view(request):
     context = {
         'person' : person,
     }
-    return render(request, "timeline/template.html", context)
+    return render(request, "timeline/base.html", context)
 
 #TODOS
 #Alle Datensätze holen
