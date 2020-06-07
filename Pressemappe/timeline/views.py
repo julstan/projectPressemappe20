@@ -16,6 +16,16 @@ import csv,io
 
 def timeline(request):
     personen = models.Person.objects.order_by('position_held_startdate')    #Alle Personendatensätze werden nach Startdatum der Position sortiert - Julika
+    alledatums = []
+    for person in personen:
+        datum = person.position_held_startdate
+        if datum[:4] not in alledatums:
+            alledatums.append(datum[:4])
+            person.jahr = datum[:4]
+        elif datum[:4] in alledatums:
+            person.jahr = None
+        else:
+            person.jahr = '????????????????????????????'
     context = {
         'personen': personen,
     }

@@ -1,32 +1,36 @@
 {% extends 'timeline/base.html' %}
 {% block content %}
 {% load static %}
-<p>{% if person.picture != None %}{{ person.picture }}{% else %}Kein Bild vorhanden{% endif %}</p>
+<!--<p>{% if person.picture != None %}{{ person.picture }}{% else %}Kein Bild vorhanden{% endif %}</p>-->
 
 <h1>Staatsoberhäupter der Pressemappe des 20. Jahrhunderts</h1>
 <div class="timeline">
 
 {% if personen %}
     {% for person in personen %}
-     <div class="timeline__item">
-         <h3 class="timeline__title">{{person.name}}  -  {{person.position_held}}</h3>
-         <h3 class="timeline__title">{{person.position_held_enddate}}  -  {{person.position_held_startdate}}</h3>
-         <h5>Lebensdaten {{person.birthday}} - {{person.deathday}}</h5>
-         <h5>Pressemappe-ID: {{person.pm20id}}</h5>
-         <h5>wikidata_object: {{person.wikidata_object}}</h5>
-         <h5>Country: {{person.country}}</h5>
-         {% if person.picture != None %}
-             <img src="{{ person.picture }}" width="100px">
-         {% else %}
-            <p>There is no image yet</p>
-         {% endif %}
-
-
-     </div>
+        {% if person.jahr != None %}
+            <h2 class="timeline__item timeline__item--year">{{person.jahr}}</h2>
+        {% else %}
+            continue
+        {% endif %}
+         <div class="timeline__item">
+             <h3 class="timeline__title">{{person.name}}  -  {{person.position_held}}</h3>
+             <h3 class="timeline__title">{{person.position_held_enddate}}  -  {{person.position_held_startdate}}</h3>
+             <h5>Lebensdaten {{person.birthday}} - {{person.deathday}}</h5>
+             <h5>Pressemappe-ID: {{person.pm20id}}</h5>
+             <h5>wikidata_object: {{person.wikidata_object}}</h5>
+             <h5>Country: {{person.country}}</h5>
+             {% if person.picture != None %}
+                 <img src="{{ person.picture }}" width="100px">
+             {% else %}
+                <p>There is no image yet</p>
+             {% endif %}
+         </div>
     {% endfor %}
 {% else %}
     <p>No data</p>
 {% endif %}
+
 
 
 
