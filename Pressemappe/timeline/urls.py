@@ -5,5 +5,5 @@ from . import views
 app_name = 'timeline'
 
 urlpatterns = [
-    path('show', views.test, name='show')
+    path('show', views.timeline, name='show')
 ]

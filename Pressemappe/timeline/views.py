@@ -8,16 +8,22 @@ import csv,io
 #Startseite wird aufgerufen unter localhost:8000#
 
 
-def test (request):
+#def test (request):
     #load_data()
-    return render(request, "timeline/timeline.html")
+ #   return render(request, "timeline/timeline.html")
 #def test(request):
     #return HttpResponse(Person.objects.all())
 
+def timeline(request):
+    personen = models.Person.objects.order_by('position_held_startdate')    #Alle Personendatensätze werden nach Startdatum der Position sortiert - Julika
+    context = {
+        'personen': personen,
+    }
+    return render(request, "timeline/timeline.html", context)
 
 
 def person_detail_view(request):
-    person = models.Person.objects.order_by('birthday')
+    person = models.Person.objects.order_by('position_held_startdate') #ergiebt mehr Sinn das nach Startdatum zu sortieren oder? Julika
     # context = {
     #     'name' :  obj.name,
     #     'birthday' : obj.birthday,
@@ -28,14 +34,14 @@ def person_detail_view(request):
     #     'picture' : obj.picture,
     # }
     context = {
-        'person' : person,
+        'person': person,
     }
     return render(request, "timeline/timeline.html", context)
 
 #TODOS
 #Alle Datensätze holen -----glaub fertig Patty
 #Datensätze sortieren   -----glaub fertig Patty, ka nach was man sortiert
-#Daten in der Timeline Struktur mit Schleife anzeigen lassen (Template)
+#Daten in der Timeline Struktur mit Schleife anzeigen lassen (Template)  --Daten sind da, noch Jahre ausgeben lassen
 #evtl. Funktionen ausdenken, Fehler beheben
 
 def load_data ():
@@ -56,8 +62,3 @@ def load_data ():
                 person.picture = row ["picture"]
             person.country = row ["country"]
             person.save()
-
-
-
-
-
