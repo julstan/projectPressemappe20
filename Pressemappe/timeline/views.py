@@ -9,6 +9,7 @@ import csv
 
 
 def test (request):
+    print ("hello")
     #load_data()
     return render(request, "timeline/timeline.html")
 #def test(request):
