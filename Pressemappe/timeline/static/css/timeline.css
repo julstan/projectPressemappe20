@@ -108,9 +108,26 @@
 	 margin: 0;
 	 font-family: 'Raleway', sans-serif;
 	 font-size: 1.5em;
+	 border: 2px solid hotpink;
+	 border-image: linear-gradient(to right, skyblue 0%, hotpink 100%);
+	 border-image-slice: 1;
+	 text-align: center;
 }
  .timeline__blurb {
 	 line-height: 1.5;
 	 font-size: 1rem;
 	 margin: 0.5rem 0 0;
+}
+.center {
+     display: flex;
+     justify-content: center;
+     text-align: center;
+}
+.image {
+    border: 2px solid hotpink;
+	border-image: linear-gradient(to right, skyblue 0%, hotpink 100%);
+	border-image-slice: 1;
+}
+hr {
+    border: 1px solid #fff;
 }
