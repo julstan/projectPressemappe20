@@ -10,11 +10,11 @@
     {% for person in personen %}
      <div class="timeline__item">
          <h3 class="timeline__title">{{person.name}}</h3>
-         <h4 class="center">{{person.position_held}}: <br> von {{person.position_held_enddate}} bis {{person.position_held_startdate}}</h4>
+         <h4 class="center">{{person.position_held}}: <br>{{person.position_held_enddate}} - {{person.position_held_startdate}}</h4>
          <hr>
          <h5>Lebensdaten: {{person.birthday}} - {{person.deathday}} </h5>
          <h5>Pressemappe-ID: {{person.pm20id}}</h5>
-         <h5>Wikidata-Objekt: <a href={{person.wikidata_object}}>{{person.wikidata_object}}</a></h5>
+         <h5>Wikidata-Objekt: <a href={{person.wikidata_object}}>hier</a></h5>
          <h5>Land: {{person.country}}</h5>
          <div class="center">
          {% if person.picture != None %}
