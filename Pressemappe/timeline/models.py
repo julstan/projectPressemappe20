@@ -2,7 +2,7 @@ from django.db import models
 
 class Person(models.Model):
     pm20id = models.TextField ()
-    wikidata_object = models.TextField ()
+    wikidata_object = models.URLField ()
     name = models.TextField ()
     birthday = models.TextField ()
     deathday = models.TextField (null = True)

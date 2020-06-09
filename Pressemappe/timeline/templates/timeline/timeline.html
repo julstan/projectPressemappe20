@@ -1,11 +1,53 @@
 {% extends 'timeline/base.html' %}
 {% block content %}
 {% load static %}
-<h1>{{ person.name }}</h1>
-<p>{% if person.picture != None %}{{ person.picture }}{% else %}Kein Bild vorhanden{% endif %}</p>
 
 
-<!----------------------------------------------------->
+<h1>Staatsoberhäupter der Pressemappe des 20. Jahrhunderts</h1>
+<div class="timeline">
+
+{% if personen %}
+    {% for person in personen %}
+     <div class="timeline__item">
+         <h3 class="timeline__title">{{person.name}}</h3>
+         <h4 class="center">{{person.position_held}}: <br>{{person.position_held_enddate}} - {{person.position_held_startdate}}</h4>
+         <hr>
+         <h5>Lebensdaten: {{person.birthday}} - {{person.deathday}} </h5>
+         <h5>Pressemappe-ID: {{person.pm20id}}</h5>
+         <h5>Wikidata-Objekt: <a href={{person.wikidata_object}}>hier</a></h5>
+         <h5>Land: {{person.country}}</h5>
+         <div class="center">
+         {% if person.picture != None %}
+             <img class="image" src="{{ person.picture }}" width="100px">
+         {% else %}
+            <p>Noch kein Bild vorhanden</p>
+         {% endif %}
+         </div>
+
+
+     </div>
+    {% endfor %}
+{% else %}
+    <p>Keine Daten</p>
+{% endif %}
+
+
+
+
+    <!--picture = models.TextField (null = True)
+        #enthält einen Link zu dem Bild
+    #eventuell hier später foreign key-->
+
+
+  <h2 class="timeline__item timeline__item--year">1984</h2>
+
+ <div class="timeline__item">
+    <h3 class="timeline__title">1984-1994 Richard von Weizsäcker</h3>
+  </div>
+
+
+
+<!--
 <h1>Staatsoberhäupter der Pressemappe des 20. Jahrhunderts</h1>
 <div class="timeline">
 
@@ -89,6 +131,6 @@
   </div>
 
   <h2 class="timeline__item timeline__item--year">2019</h2>
-
+-->
 </div>
 {% endblock content %}
