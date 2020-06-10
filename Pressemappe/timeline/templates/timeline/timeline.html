@@ -8,19 +8,21 @@
 
 {% if personen %}
     {% for person in personen %}
+    <h2 class="timeline__item timeline__item--year">{{person.position_held_startdate}}</h2>
      <div class="timeline__item">
-         <h3 class="timeline__title">{{person.name}}</h3>
-         <h4 class="center">{{person.position_held}}: <br>{{person.position_held_startdate}} - {{person.position_held_enddate}}</h4>
+         <h2 class="timeline__title">{{person.name}}</h2>
          <hr>
-         <h5>Lebensdaten: {{person.birthday}} - {{person.deathday}} </h5>
-         <h5>Pressemappe-ID: {{person.pm20id}}</h5>
-         <h5>Wikidata-Objekt: <a href={{person.wikidata_object}}>hier</a></h5>
+         <h4 class="center">{{person.position_held}} <br>{{person.position_held_startdate}} bis {{person.position_held_enddate}}</h4>
+         <hr>
+         <h5>Lebensdaten: {{person.birthday}} bis {{person.deathday}} </h5>
          <h5>Land: {{person.country}}</h5>
+         <h5>Pressemappe-ID: {{person.pm20id}}</h5>
+         <h5>Wikidata-Objekt: <a href={{person.wikidata_object}}>hier klicken</a></h5>
          <div class="center">
          {% if person.picture != None %}
              <img class="image" src="{{ person.picture }}" width="100px">
          {% else %}
-            <p>Noch kein Bild vorhanden</p>
+            <p>Leider kein Bild vorhanden</p>
          {% endif %}
          </div>
 
