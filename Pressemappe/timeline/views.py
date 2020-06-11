@@ -49,4 +49,11 @@ def load_data ():
             if row ["picture"] != "":
                 person.picture = row ["picture"]
             person.country = row ["country"]
+            person.gender = row ["gender"]
+            if row ["religionLabel"] != "":
+                person.religion = row ["religionLabel"]
+            if row ["predecessor"] != "":
+                person.predecessor = row ["predecessor"]
+            if row ["successor"] != "":
+                person.successor = row ["successor"]
             person.save()
