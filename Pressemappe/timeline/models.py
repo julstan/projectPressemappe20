@@ -11,6 +11,10 @@ class Person(models.Model):
     position_held_enddate = models.TextField ()
     picture = models.TextField (null = True)
         #enthält einen Link zu dem Bild
+    gender = models.TextField (null = True)
+    religion = models.TextField (default = "-")
+    predecessor = models.TextField (null = True)
+    successor = models.TextField (null = True)
     #eventuell hier später foreign key
     country = models.TextField ()
 
