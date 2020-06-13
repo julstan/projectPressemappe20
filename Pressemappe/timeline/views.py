@@ -61,3 +61,10 @@ def load_data ():
             if row ["successor"] != "":
                 person.successor = row ["successor"]
             person.save()
+
+# def deutschland_filter ():
+#      person = models.Person.objects.filter(name='Deutschland')
+#      context = {
+#         'person': person,
+#      }
+#      return render(request, "timeline/deutschland.html", context)
