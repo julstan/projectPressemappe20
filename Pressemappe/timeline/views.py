@@ -2,7 +2,7 @@ from django.shortcuts import render
 from . import models
 from .models import Person
 import csv
-
+import json
 
 #Startseite wird aufgerufen unter localhost:8000#
 
@@ -13,6 +13,10 @@ def timeline(request):
         'personen': personen,
     }
     return render(request, "timeline/timeline.html", context)
+
+# from django.core import serializers
+# json_serializer = serializers.get_serializer("json")()
+# personen = json_serializer.serialize(models.Person.objects.order_by('position_held_startdate'))
 
 
 def person_detail_view(request):

@@ -4,7 +4,14 @@
 
 
 <h1>Staatsoberhäupter der Pressemappe des 20. Jahrhunderts</h1>
-<div class="timeline">
+<div class="row">
+    <div class="col-3">
+        <div class="card card body">
+            <input id="search-input" class="form-control" type="text" placeholder="Volltextsuche">
+        </div>
+    </div>
+</div>
+<div class="timeline" id="myTimeline">
 
 {% if personen %}
     {% for person in personen %}
@@ -33,14 +40,15 @@
     <p>Keine Daten</p>
 {% endif %}
 
-
+</div>
+{% endblock content %}
 
 
     <!--picture = models.TextField (null = True)
         #enthält einen Link zu dem Bild
     #eventuell hier später foreign key-->
 
-
+<!--
   <h2 class="timeline__item timeline__item--year">1984</h2>
 
  <div class="timeline__item">
@@ -134,5 +142,4 @@
 
   <h2 class="timeline__item timeline__item--year">2019</h2>
 -->
-</div>
-{% endblock content %}
+
