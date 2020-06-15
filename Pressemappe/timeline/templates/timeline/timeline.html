@@ -6,9 +6,14 @@
 
 <h1>Staatsoberhäupter der Pressemappe des 20. Jahrhunderts</h1>
 <div class="row">
-    <div class="col-3">
-        <div class="card card body">
-            <input id="search-input" class="form-control" type="text" placeholder="Volltextsuche">
+    <div class="col">
+        <div class="card text-white bg-dark mb-3">
+            <form method="get">
+
+                {{myFilter.form}}
+
+                <button class="btn btn-secondary" type="submit">Suche</button>
+            </form>
         </div>
     </div>
 </div>
@@ -19,7 +24,7 @@
 
 {% if personen %}
     {% for person in personen %}
-    <h2 class="timeline__item timeline__item--year">{{person.position_held_startdate}}</h2>
+    <h2 class="timeline__item timeline__item--year">{{person.position_held_startdate|slice:":4" }}</h2>
      <div class="timeline__item">
          <h2 class="timeline__title">{{person.name}}</h2>
          <hr>
@@ -28,7 +33,7 @@
          <h5>Lebensdaten: {{person.birthday}} bis {{person.deathday}} </h5>
          <h5>Land: {{person.country}}</h5>
          <h5>Pressemappe-ID: {{person.pm20id}}</h5>
-         <h5>Wikidata-Objekt: <a href={{person.wikidata_object}}>hier klicken</a></h5>
+         <h5>Wikidata-Objekt: <a href={{person.wikidata_object}} target="_blank">hier klicken</a></h5>
          <div class="center">
          {% if person.picture != None %}
              <img class="image" src="{{ person.picture }}" width="100px">

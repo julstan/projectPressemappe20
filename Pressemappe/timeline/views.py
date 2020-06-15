@@ -2,15 +2,18 @@ from django.shortcuts import render
 from . import models
 from .models import Person
 import csv
-import json
+from .filters import PersonFilter
 
 #Startseite wird aufgerufen unter localhost:8000#
 
 
 def timeline(request):
     personen = models.Person.objects.order_by('position_held_startdate')    #Alle Personendatensätze werden nach Startdatum der Position sortiert - Julika
+    myFilter = PersonFilter(request.GET, queryset=personen)
+    personen = myFilter.qs
     context = {
         'personen': personen,
+        'myFilter': myFilter,
     }
     return render(request, "timeline/timeline.html", context)
 
@@ -19,21 +22,21 @@ def timeline(request):
 # personen = json_serializer.serialize(models.Person.objects.order_by('position_held_startdate'))
 
 
-def person_detail_view(request):
-    person = models.Person.objects.order_by('position_held_startdate')
-    # context = {
-    #     'name' :  obj.name,
-    #     'birthday' : obj.birthday,
-    #     'deathday'  : obj.deathday,
-    #     'position_held' : obj.position_held,
-    #     'position_held_startdate' : obj.position_held_startdate,
-    #     'position_held_enddate' : obj.position_held_enddate,
-    #     'picture' : obj.picture,
-    # }
-    context = {
-        'person': person,
-    }
-    return render(request, "timeline/timeline.html", context)
+# def person_detail_view(request):
+#     person = models.Person.objects.order_by('position_held_startdate')
+#     # context = {
+#     #     'name' :  obj.name,
+#     #     'birthday' : obj.birthday,
+#     #     'deathday'  : obj.deathday,
+#     #     'position_held' : obj.position_held,
+#     #     'position_held_startdate' : obj.position_held_startdate,
+#     #     'position_held_enddate' : obj.position_held_enddate,
+#     #     'picture' : obj.picture,
+#     # }
+#     context = {
+#         'person': person,
+#     }
+#     return render(request, "timeline/timeline.html", context)
 
 
 def load_data ():
