@@ -13,13 +13,17 @@ def timeline(request):
     personen = myFilter.qs
 
     for person in personen:
-        jahr = person.position_held_startdate[:4]
+        person.jahr = person.position_held_startdate[:4]
 
-        monat = person.position_held_startdate[6:7]
-        tag = person.position_held_startdate[8:9]
-        position_held_start_EU = (tag + "." + monat + "." + jahr)
-        person.jahr.save()
-        person.position_held_start_EU.save()
+        monat = person.position_held_startdate[5:7]
+        tag = person.position_held_startdate[8:10]
+        person.position_held_start_EU = (tag + "." + monat + "." + person.jahr)
+
+        jahrEnde = person.position_held_enddate[:4]
+        monatEnde = person.position_held_enddate[5:7]
+        tagEnde = person.position_held_enddate[8:10]
+
+        person.position_held_end_EU = (tagEnde + "." + monatEnde + "." + jahrEnde)
     context = {
         'personen': personen,
         'myFilter': myFilter,

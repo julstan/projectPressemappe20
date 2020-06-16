@@ -17,6 +17,9 @@ class Person(models.Model):
     successor = models.TextField (null = True)
     #eventuell hier später foreign key
     country = models.TextField ()
+    position_held_start_EU = models.TextField(default=0)
+    position_held_end_EU = models.TextField(default=0)
+    jahr = models.TextField(default=0)
 
     def __str__(self):
         return "{}: {}".format(self.name, self.position_held)
