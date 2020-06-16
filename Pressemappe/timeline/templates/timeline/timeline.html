@@ -2,20 +2,25 @@
 {% block content %}
 {% load static %}
 
-
-
 <h1>Staatsoberhäupter der Pressemappe des 20. Jahrhunderts</h1>
+
 <div class="row">
     <div class="col-12 center">
-        <div class="card text-white bg-dark mb-3">
-        <div class="card-header">Filteroptionen</div>
-            <div class="card-body">
-            <form method="get">
-                {{myFilter.form}} <!--{{myFilter.form|linebreaks}}-->
-                <br>
-                <!--<small>Eingabeformat: Jahr-Monat-Tag (z.B. 1900-03-22)</small><br>-->
-                <button class="btn btn-secondary" type="submit">Suche</button>
-            </form>
+        <button type="button" class="collapsible">Filtermöglichkeiten</button>
+        <div class="content">
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-header">Filteroptionen</div>
+                    <div class="card-body">
+                    <form method="get">
+                        {{myFilter.form}} <!--{{myFilter.form|linebreaks}}-->
+                        <br>
+                        <!--<small>Eingabeformat: Jahr-Monat-Tag (z.B. 1900-03-22)</small><br>-->
+
+                        <button class="btn btn-secondary" type="submit">Suche</button>
+                         <p>Bitte benutzen Sie das Format Jahr-Monat-Tag für Zeiträume</p>
+                        <p>Mehrere Suchfilter können in einer "Und"-Anfrage kombiniert werden</p>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -53,7 +58,13 @@
 {% endif %}
 
 </div>
+
+
 {% endblock content %}
+
+
+
+
 
 
     <!--picture = models.TextField (null = True)

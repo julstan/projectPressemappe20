@@ -1,3 +1,26 @@
+/*Styling des Buttons mit dem die Filtermöglichkeiten ausgeklappt werden*/
+.collapsible {
+  background-color: #eee;
+  cursor: pointer;
+  padding: 18px;
+  width: 200px;
+  border: none;
+  text-align: center;
+  outline: none;
+}
+
+/* Hintergrundfarbe für den Button wenn er aktiv ist */
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+/* Styling Filtermöglichkeiten dass sie ein/ausklappbar sind */
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+}
+
 * {
 	 box-sizing: border-box;
 }
