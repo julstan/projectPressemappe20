@@ -19,7 +19,9 @@ class Person(models.Model):
     country = models.TextField ()
     position_held_start_EU = models.TextField(default=0)
     position_held_end_EU = models.TextField(default=0)
-    jahr = models.TextField(default=0)
+    birthdayEU = models.TextField (default = 0)
+    deathdayEU = models.TextField (default = 0)
+    jahr = models.TextField(default=0, null = True)
 
     def __str__(self):
         return "{}: {}".format(self.name, self.position_held)

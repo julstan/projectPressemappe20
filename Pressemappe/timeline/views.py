@@ -14,16 +14,12 @@ def timeline(request):
 
     for person in personen:
         person.jahr = person.position_held_startdate[:4]
+        person.position_held_start_EU = (person.position_held_startdate[8:10] + "." + person.position_held_startdate[5:7] + "." + person.position_held_startdate[:4])
+        person.position_held_end_EU = (person.position_held_enddate[8:10] + "." + person.position_held_enddate[5:7] + "." + person.position_held_enddate[:4])
+        person.birthdayEU = (person.birthday[8:10] + "." + person.birthday[5:7] + "." + person.birthday[:4])
+        if person.deathday is not None:
+            person.deathdayEU = (person.deathday[8:10] + "." + person.deathday[5:7] + "." + person.deathday[:4])
 
-        monat = person.position_held_startdate[5:7]
-        tag = person.position_held_startdate[8:10]
-        person.position_held_start_EU = (tag + "." + monat + "." + person.jahr)
-
-        jahrEnde = person.position_held_enddate[:4]
-        monatEnde = person.position_held_enddate[5:7]
-        tagEnde = person.position_held_enddate[8:10]
-
-        person.position_held_end_EU = (tagEnde + "." + monatEnde + "." + jahrEnde)
     context = {
         'personen': personen,
         'myFilter': myFilter,
