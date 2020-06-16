@@ -11,32 +11,20 @@ def timeline(request):
     personen = models.Person.objects.order_by('position_held_startdate')    #Alle Personendatensätze werden nach Startdatum der Position sortiert - Julika
     myFilter = PersonFilter(request.GET, queryset=personen)
     personen = myFilter.qs
+
+    for person in personen:
+        jahr = person.position_held_startdate[:4]
+
+        monat = person.position_held_startdate[6:7]
+        tag = person.position_held_startdate[8:9]
+        position_held_start_EU = (tag + "." + monat + "." + jahr)
+        person.jahr.save()
+        person.position_held_start_EU.save()
     context = {
         'personen': personen,
         'myFilter': myFilter,
     }
     return render(request, "timeline/timeline.html", context)
-
-# from django.core import serializers
-# json_serializer = serializers.get_serializer("json")()
-# personen = json_serializer.serialize(models.Person.objects.order_by('position_held_startdate'))
-
-
-# def person_detail_view(request):
-#     person = models.Person.objects.order_by('position_held_startdate')
-#     # context = {
-#     #     'name' :  obj.name,
-#     #     'birthday' : obj.birthday,
-#     #     'deathday'  : obj.deathday,
-#     #     'position_held' : obj.position_held,
-#     #     'position_held_startdate' : obj.position_held_startdate,
-#     #     'position_held_enddate' : obj.position_held_enddate,
-#     #     'picture' : obj.picture,
-#     # }
-#     context = {
-#         'person': person,
-#     }
-#     return render(request, "timeline/timeline.html", context)
 
 
 def load_data ():
@@ -64,10 +52,3 @@ def load_data ():
             if row ["successor"] != "":
                 person.successor = row ["successor"]
             person.save()
-
-# def deutschland_filter ():
-#      person = models.Person.objects.filter(name='Deutschland')
-#      context = {
-#         'person': person,
-#      }
-#      return render(request, "timeline/deutschland.html", context)
