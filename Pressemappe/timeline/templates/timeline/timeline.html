@@ -6,14 +6,17 @@
 
 <h1>Staatsoberhäupter der Pressemappe des 20. Jahrhunderts</h1>
 <div class="row">
-    <div class="col">
+    <div class="col-12 center">
         <div class="card text-white bg-dark mb-3">
+        <div class="card-header">Filteroptionen</div>
+            <div class="card-body">
             <form method="get">
-
-                {{myFilter.form}}
-
+                {{myFilter.form}} <!--{{myFilter.form|linebreaks}}-->
+                <br>
+                <!--<small>Eingabeformat: Jahr-Monat-Tag (z.B. 1900-03-22)</small><br>-->
                 <button class="btn btn-secondary" type="submit">Suche</button>
             </form>
+            </div>
         </div>
     </div>
 </div>
