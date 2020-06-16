@@ -43,7 +43,6 @@
  .timeline__item {
 	 padding: 1rem;
 	 border: 4px solid white;
-
 	 border-image-slice: 1;
 	 position: relative;
 	 margin: 1rem 3rem 1rem 1rem;
@@ -65,11 +64,12 @@
 	 .timeline__item {
 		 width: 44%;
 		 margin: 1rem;
+		 border: 4px solid white;
 	}
 	 .timeline__item:nth-of-type(2n) {
 		 float: right;
+
 		 margin: 1rem;
-		 border: 4px solid white;
 
 		 border-image-slice: 1;
 	}
@@ -116,10 +116,10 @@
 	 border-image-slice: 1;
 	 text-align: center;
 }
- .timeline__blurb {
+ /*.timeline__blurb {
 	 line-height: 1.5;
 	 font-size: 1rem;
-	 margin: 0.5rem 0 0;
+	 margin: 0.5rem 0 0;*/
 }
 .center {
      display: flex;
@@ -153,6 +153,36 @@ a:hover {
   color: grey;
 }
 
+.picture {
+   /* float: left;*/
+
+    /*width: 25%
+}
+
+.inhalt {
+    width: 70%;
+   /* float: right;*/
+}
+
+.name {
+
+    text-align: center;
+}
+
+.description {
+
+    text-align: left;
+
+}
+
+
+img {
+    width: 30%;
+}
+
+.flex-container {
+  display: flex;
+}
 
 
 
