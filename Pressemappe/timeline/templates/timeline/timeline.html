@@ -27,36 +27,40 @@
 {% if personen %}
     {% for person in personen %}
     <h2 class="timeline__item timeline__item--year">{{person.position_held_startdate}}</h2>
-     <div class="timeline__item">
-       <div class="felx-container">
-        <div class="inhalt">
-         <div class="name"> <h2>{{person.name}}</h2>
-         <hr>
-             <h4>{{person.position_held}} <br>{{person.position_held_startdate}} bis {{person.position_held_enddate}}</h4>
-         <hr>
-         </div>
-         <div class="description">
-             <h5>Lebensdaten: {{person.birthday}} bis {{person.deathday}} </h5>
-         <h5>Land: {{person.country}}</h5>
-         <h5>Pressemappe-ID: {{person.pm20id}}</h5>
-         <h5>Wikidata-Objekt: <a href={{person.wikidata_object}}>hier klicken</a></h5>
-         </div>
-         </div>
-         <div class="picture">
-         {% if person.picture != None %}
-             <img src="{{ person.picture }}">
-         {% else %}
-            <p>Leider kein Bild vorhanden</p>
-         {% endif %}
-          </div>
+    <div class="timeline__item">
+        <div class="box">
+            <div class="inhalt">
+                <div class="flex-container">
+                    <div class="name">
+                        <h2>{{person.name}}</h2>
+                        <hr>
+                        <h4>{{person.position_held}} <br>{{person.position_held_startdate}} bis {{person.position_held_enddate}}</h4>
+                        <hr>
+                    </div>
+                    <div class="picture">
+                        {% if person.picture != None %}
+                            <img src="{{ person.picture }}">
+                        {% else %}
+                           <p>Leider kein Bild vorhanden</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="description">
+                    <h5>Lebensdaten: {{person.birthday}} bis {{person.deathday}} </h5>
+                    <h5>Land: {{person.country}}</h5>
+                    <h5>Pressemappe-ID: {{person.pm20id}}</h5>
+                    <h5>Wikidata-Objekt: <a href={{person.wikidata_object}}>hier klicken</a></h5>
+                </div>
+            </div>
         </div>
      </div>
+
     {% endfor %}
 
 {% else %}
     <p>Keine Daten</p>
 {% endif %}
-
+</div>
 {% endblock content%}
 
     <!--picture = models.TextField (null = True)
