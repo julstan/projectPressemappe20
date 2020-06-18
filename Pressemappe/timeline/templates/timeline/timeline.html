@@ -34,7 +34,13 @@
     {% for person in personen %}
     <h2 class="timeline__item timeline__item--year">{{person.position_held_startdate|slice:":4" }}</h2>
      <div class="timeline__item">
+<<<<<<< Updated upstream
          <h2 class="timeline__title">{{person.name}}</h2>
+=======
+       <div class="flex-container">
+        <div class="inhalt">
+         <div class="name"> <h2>{{person.name}}</h2>
+>>>>>>> Stashed changes
          <hr>
          <h4 class="center">{{person.position_held}} <br>{{person.position_held_start_EU}} bis {{person.position_held_end_EU}}</h4>
          <hr>
