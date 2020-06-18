@@ -102,5 +102,5 @@ SELECT ?pm20idLabel ?person ?personLabel ?birthday ?deathday ?picture ?position_
            OPTIONAL {?s pq:P1366 ?replacedby} .
            OPTIONAL {?s pq:P1365 ?predecessor} .
 
-  SERVICE wikibase:label { bd:serviceParam wikibase:language "de,en". }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "de, en, fr, es, nl, pl, ru". }
  } ORDER BY ?genderLabel
