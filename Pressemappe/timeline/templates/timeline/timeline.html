@@ -35,7 +35,7 @@
                         {% if person.picture != None %}
                             <img src="{{ person.picture }}">
                         {% else %}
-                           <p>Leider kein Bild vorhanden</p>
+                           <img src="{% static "avatar.png" %}" alt="Kein Bild vorhanden">
                         {% endif %}
                     </div>
                     <div class="name">
