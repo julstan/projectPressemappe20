@@ -175,6 +175,8 @@ a:hover {
 
 img {
     width: 80%;
+    object-fit: cover;
+    height: 300px;
 }
 
 .flex-container {
