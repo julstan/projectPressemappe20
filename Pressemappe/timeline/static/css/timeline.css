@@ -154,14 +154,11 @@ a:hover {
 }
 
 .picture {
-   /* float: left;*/
-
-    /*width: 25%
+  width: 60%
 }
 
 .inhalt {
-    width: 70%;
-   /* float: right;*/
+    width: 100%;
 }
 
 .name {
@@ -177,12 +174,12 @@ a:hover {
 
 
 img {
-    width: 30%;
+    width: 80%;
 }
 
 .flex-container {
   display: flex;
+  flex-direction: row;
 }
-
 
 
