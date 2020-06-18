@@ -76,3 +76,28 @@ SELECT ?pm20idLabel ?person ?personLabel ?birthday ?deathday ?picture ?position_
   
   SERVICE wikibase:label { bd:serviceParam wikibase:language "de,en". }
  } ORDER BY ?genderLabel
+ 
+ SELECT ?pm20idLabel ?person ?personLabel ?birthday ?deathday ?picture ?position_heldLabel ?start ?end ?countryLabel ?genderLabel ?replacedbyLabel ?predecessorLabel ?religionLabel
+ WHERE {
+  ?person wdt:P4293 ?pm20id.
+  OPTIONAL {?person wdt:P569 ?birthday} .
+  OPTIONAL {?person wdt:P570 ?deathday }.
+  OPTIONAL {?person wdt:P18 ?picture } .
+  OPTIONAL {?person wdt:P21 ?gender } .
+  OPTIONAL {?person wdt:P140 ?religion } .
+    
+  ?person p:P39 ?s.  # ?s is the the statement node
+           ?s ps:P39  ?position_held.  # that simulates the predicate
+          
+   {
+           ?position_held wdt:P279 wd:Q2285706 .}
+    UNION
+          { ?position_held wdt:P279 wd:Q48352 .}
+           ?position_held wdt:P17 ?country .
+           ?s pq:P580 ?start.  # this is an attribute (a qualifier)
+           OPTIONAL{?s pq:P582 ?end.}
+           OPTIONAL {?s pq:P1366 ?replacedby} .
+           OPTIONAL {?s pq:P1365 ?predecessor} .
+ 
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "de,en". }
+ } ORDER BY ?genderLabel
