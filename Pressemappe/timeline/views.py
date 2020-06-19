@@ -52,3 +52,9 @@ def load_data ():
             if row ["successor"] != "":
                 person.successor = row ["successor"]
             person.save()
+
+
+
+
+
+

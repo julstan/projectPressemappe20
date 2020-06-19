@@ -5,17 +5,44 @@ from django_filters import DateFilter, CharFilter
 from .models import *
 
 
+class DynamicChoiceMixin(object):
+
+    @property
+    def field(self):
+        queryset = self.parent.queryset
+        field = super(DynamicChoiceMixin, self).field
+
+        choices = list()
+        have = list()
+        # iterate through the queryset and pull out the values for the field name
+        for item in queryset:
+            name = getattr(item, self.field_name)
+            if name in have:
+                continue
+            have.append(name)
+            choices.append((name, name))
+        field.choices.choices = choices
+        return field
+
+
+class DynamicChoiceFilter(DynamicChoiceMixin, django_filters.ChoiceFilter):
+    pass
+
+
+
 class PersonFilter(django_filters.FilterSet):
-    name = CharFilter(label='Name', lookup_expr='icontains',widget=TextInput(attrs={'placeholder': 'z.B. John F. Kennedy,...'}))
-    country = CharFilter(label='Land', lookup_expr='icontains',widget=TextInput(attrs={'placeholder': 'z.B. China'}))
+    name = CharFilter(label='Name', lookup_expr='icontains',widget=TextInput(attrs={'placeholder': 'z.B. Max Muster,...'}))
+    country = DynamicChoiceFilter(label='Land')
     StartDatum = DateFilter(label='Regierungsbeginn', field_name="position_held_startdate", lookup_expr='gte', widget=TextInput(attrs={'placeholder': 'z.B. 1789-04-30'}))  #größer und gleich als
     EndDatum = DateFilter(label='Regierungsende', field_name="position_held_enddate", lookup_expr='lte',widget=TextInput(attrs={'placeholder': 'z.B. 2011-11-16'}))  #kleiner und gleich als
-
-
+    gender = DynamicChoiceFilter(label='Geschlecht')
+    religion = DynamicChoiceFilter(label='Religion')
     class Meta:
         model = Person
-        fields = ['name', 'country']
+        fields = ['name', 'gender', 'country', 'religion']
         exclude = ['pm20id', 'wikidata_object']
+
+
 
 
 
