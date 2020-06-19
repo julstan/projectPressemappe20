@@ -143,18 +143,7 @@
 	 line-height: 1.5;
 	 font-size: 1rem;
 	 margin: 0.5rem 0 0;
-<<<<<<< Updated upstream
-}
-=======
-}*/
->>>>>>> Stashed changes
-.center {
-     display: flex;
-     justify-content: center;
-     text-align: center;
 
-
-}
 .image {
     border: none;
 	border-image: linear-gradient(to right, skyblue 0%, hotpink 100%);

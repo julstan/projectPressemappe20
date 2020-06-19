@@ -4,7 +4,7 @@ from .models import Person
 import csv
 from .filters import PersonFilter
 
-#Startseite wird aufgerufen unter localhost:8000#
+
 
 
 def timeline(request):
