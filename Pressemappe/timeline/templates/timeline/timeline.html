@@ -1,15 +1,13 @@
-<!-- {% extends 'timeline/base.html' %} -->
+{% extends 'timeline/base.html' %}
 {% block content %}
 {% load static %}
 
-<div class="header">
+<div class="sticky-top pt-3 bg-light">
     <h1>Staatsoberhäupter Pressemappe des 20. Jahrhunderts</h1>
-</div>
-
 <div class="row">
     <div class="col-12">
         <!--<div class="content">-->
-            <div class="card text-white text-center bg-dark mb-3">
+            <div class="card text-white text-center bg-info mb-3">
                 <div class="card-header">
                     <button class="btn btn-outline-light" type="button" data-toggle="collapse" data-target="#collapseFilter" aria-expanded="true" aria-controls="collapseFilter">
                         Filteroptionen
@@ -25,9 +23,9 @@
                         <small>Info: Bitte benutzen Sie das Format Jahr-Monat-Tag für Zeiträume
                             </small>
                         <br>
-                        <button class="btn btn-secondary" type="submit" data-toggle="tooltip" data-placement="bottom"
+                        <button class="btn btn-warning" type="submit" data-toggle="tooltip" data-placement="bottom"
                                 title="Suchfilter können kombiniert werden">Suche</button>
-                                <a class="btn btn-outline-light" href="/timeline/show">zurück</a>
+                                <button class="btn btn-outline-light" href="/timeline/show">zurück</button>
 
                     </form>
 
@@ -36,6 +34,7 @@
             </div>
 <!--</div>-->
     </div>
+</div>
 </div>
 <!--<button class="btn btn-success"><a href="">Deutschland</a></button>-->
 
