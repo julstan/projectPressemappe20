@@ -1,12 +1,64 @@
+* {
+	 box-sizing: border-box;
+}
+
+ body {
+	 background: #12648a;
+	 color: white;
+	 font-family: 'Raleway', sans-serif;
+}
+
+ .header h1 {
+	 text-align: center;
+	 font-family: 'Raleway', sans-serif;
+	 vertical-align: center;
+	 font-size: 35px;
+}
+
+.header {
+    position: sticky;
+    top:0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    background: #33383E;
+    height: 100px;
+    padding: 25px 0 0 0;
+    z-index: 999;
+    overflow: hidden;
+    -webkit-transition: height 0.3s;
+    -moz-transition: height 0.3s;
+    transition: height 0.3s;
+}
+
+
+
+.sticky-header {
+    padding: 0;
+    margin: 0;
+}
+
+
+.row {
+    position: sticky;
+    top: 95px;
+    z-index: 999;
+}
+
+
 /*Styling des Buttons mit dem die Filtermöglichkeiten ausgeklappt werden*/
 .collapsible {
-  background-color: #eee;
+  background-color: #efe;
+  color: #444;
   cursor: pointer;
   padding: 18px;
-  width: 200px;
+  width: 100%;
   border: none;
-  text-align: center;
+  text-align: left;
   outline: none;
+  font-size: 15px;
+  border-top-right-radius:0;
+  border-top-left-radius:0;
 }
 
 /* Hintergrundfarbe für den Button wenn er aktiv ist */
@@ -21,30 +73,6 @@
   overflow: hidden;
 }
 
-* {
-	 box-sizing: border-box;
-}
- body {
-	 background: #12648a;
-	 color: white;
-	 /* padding: 1rem; */
-	 font-family: 'Raleway', sans-serif;
-}
-
- h1 {
-	 text-align: center;
-	 font-family: 'Raleway', sans-serif;
-}
-
-.header {
-    position: fixed;
-    width: 100%;
-    background: #EDE7E3;
-    position: fixed;
-    right: 0;
-    left: 0;
-    z-index: 999;
-}
 
  .timeline {
 	 position: relative;
@@ -84,6 +112,7 @@
 	 margin: 1rem 3rem 1rem 1rem;
 	 clear: both;
 }
+
  .timeline__item:after, .timeline__item:before {
 	 content: '';
 	 position: absolute;

@@ -1,43 +1,47 @@
-<!-- {% extends 'timeline/base.html' %} -->
+{% extends 'timeline/base.html' %}
 {% block content %}
 {% load static %}
 
-<div class="header">
-    <h1>Staatsoberhäupter Pressemappe des 20. Jahrhunderts</h1>
-</div>
 
-<div class="row">
-    <div class="col-12">
-        <!--<div class="content">-->
-            <div class="card text-white text-center bg-dark mb-3">
-                <div class="card-header">
-                    <button class="btn btn-outline-light" type="button" data-toggle="collapse" data-target="#collapseFilter" aria-expanded="true" aria-controls="collapseFilter">
-                        Filteroptionen
-                    </button>
-                    <!-- falls man den Button nicht in der vollen Länge haben möchte, dann aria-expanded="false"-->
-                </div>
-                <div class="collapse show" id="collapseFilter">
-                    <div class="card-body">
-                    <form method="get">
-                        {{myFilter.form}} <!--{{myFilter.form|linebreaks}}-->
-                        <br>
-                        <!--<small>Eingabeformat: Jahr-Monat-Tag (z.B. 1900-03-22)</small><br>-->
-                        <small>Info: Bitte benutzen Sie das Format Jahr-Monat-Tag für Zeiträume
-                            </small>
-                        <br>
-                        <button class="btn btn-secondary" type="submit" data-toggle="tooltip" data-placement="bottom"
-                                title="Suchfilter können kombiniert werden">Suche</button>
-                                <a class="btn btn-outline-light" href="/timeline/show">zurück</a>
+<div class="sticky-header">
+    <div class="header">
+        <h1>Staatsoberhäupter Pressemappe des 20. Jahrhunderts</h1>
+    </div>
 
-                    </form>
+    <div class="row">
+        <div class="col-12">
+            <!--<div class="content">-->
+                <div class="card text-white text-center bg-dark mb-3">
+                    <div class="card-header">
+                        <button class="btn btn-outline-light" type="button" data-toggle="collapse" data-target="#collapseFilter" aria-expanded="true" aria-controls="collapseFilter">
+                            Filteroptionen
+                        </button>
+                        <!-- falls man den Button nicht in der vollen Länge haben möchte, dann aria-expanded="false"-->
+                    </div>
+                    <div id="collapseFilter">
+                        <div class="card-body">
+                        <form method="get">
+                            {{myFilter.form}} <!--{{myFilter.form|linebreaks}}-->
+                            <br>
+                            <!--<small>Eingabeformat: Jahr-Monat-Tag (z.B. 1900-03-22)</small><br>-->
+                            <small>Info: Bitte benutzen Sie das Format Jahr-Monat-Tag für Zeiträume
+                                </small>
+                            <br>
+                            <button class="btn btn-secondary" type="submit" data-toggle="tooltip" data-placement="bottom"
+                                    title="Suchfilter können kombiniert werden">Suche</button>
+                                    <a class="btn btn-outline-light" href="/timeline/show">zurück</a>
 
+                        </form>
+
+                        </div>
                     </div>
                 </div>
-            </div>
-<!--</div>-->
+    <!--</div>-->
+        </div>
     </div>
+    <!--<button class="btn btn-success"><a href="">Deutschland</a></button>-->
 </div>
-<!--<button class="btn btn-success"><a href="">Deutschland</a></button>-->
+
 
 <div class="timeline" id="myTimeline">
 
@@ -84,9 +88,3 @@
 
 
 {% endblock content %}
-
-
-
-
-
-
