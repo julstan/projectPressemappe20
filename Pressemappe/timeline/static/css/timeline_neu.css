@@ -2,31 +2,6 @@
 	 box-sizing: border-box;
 }
 
-
-.header {
-    position: sticky;
-    top:0;
-    right: 0;
-    left: 0;
-    width: 100%;
-    background: #33383E;
-    height: 100px;
-    padding: 15px 0 0 0;
-    z-index: 999;
-    overflow: hidden;
-    -webkit-transition: height 0.3s;
-    -moz-transition: height 0.3s;
-    transition: height 0.3s;
-}
-
-
-.row {
-    position: sticky;
-    top: 95px;
-    z-index: 999;
-}
-
-
  body {
 	 background: #F6F3F1;
 	 color: #5f464b;
@@ -40,6 +15,29 @@
 	 text-align: center;
 	 font-family: 'Raleway', sans-serif;
 }
+
+.top-container {
+    height: 200px;
+    top: 0;
+    padding: 80px;
+    background: #F6F3F1;
+    width: 100%;
+}
+
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 102px;
+}
+
+
 
 /* Zeitstrahl-Linie */
 
