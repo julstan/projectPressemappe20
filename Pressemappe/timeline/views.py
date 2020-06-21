@@ -24,7 +24,7 @@ def timeline(request):
         'personen': personen,
         'myFilter': myFilter,
     }
-    return render(request, "timeline/timeline.html", context)
+    return render(request, "timeline/timeline_neu.html", context)
 
 
 def load_data ():
