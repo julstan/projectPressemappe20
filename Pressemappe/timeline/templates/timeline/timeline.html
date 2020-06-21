@@ -44,7 +44,7 @@
 {% if personen %}
     <button class="btn btn-outline-light disabled" style="cursor:default;">Insgesamt {{personen.count}} Datensätze</button>
     {% for person in personen %}
-    <h2 class="timeline__item timeline__item--year">{{person.position_held_startdate|slice:":4" }}</h2>
+    <h2 class="timeline__item timeline__item--year">{{person.position_held_startdate }}</h2>
      <div class="timeline__item">
          <h2 class="timeline__title">{{person.name}}</h2>
        <!--<div class="flex-container">-->
