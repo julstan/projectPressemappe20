@@ -32,8 +32,13 @@ def timeline(request):
             continue
     zeitraumanfang.sort()
     zeitraumende.sort()
-    firstentry = zeitraumanfang[0]
-    lastentry = zeitraumende[-1]
+    if len(zeitraumanfang) != 0:
+        firstentry = zeitraumanfang[0]
+        lastentry = zeitraumende[-1]
+    else:
+        firstentry = None
+        lastentry = None
+
     context = {
         'personen': personen,
         'myFilter': myFilter,
