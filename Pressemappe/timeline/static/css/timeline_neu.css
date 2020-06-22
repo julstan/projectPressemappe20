@@ -1,5 +1,6 @@
 * {
 	 box-sizing: border-box;
+	 border-radius: 0 !important;
 }
 
  body {
@@ -24,8 +25,35 @@
     width: 100%;
 }
 
+/* Farbe des Menüs */
+
 #filtermenue {
     background: #16697a;
+}
+
+.card {
+    color: #f6f3f1;
+}
+
+
+/* Styling der Buttons von Bootstrap */
+
+.btn-outline-warning {
+    background-color: #f6f3f1;
+    color: #5f464b;
+    border-color: #ffa62b !important;
+    border: 4px solid;
+
+}
+
+.btn-outline-warning:hover, .btn-outline-warning:focus, .btn-outline-warning:active, .btn-outline-warning.active, .open>.dropdown-toggle.btn-outline-warning {
+    color: #5f464b;
+    background-color: #ffa62b;
+    border-color: #ffa62b;
+}
+
+.btn-outline-warning:a {
+    color: #5f464b
 }
 
 
@@ -193,19 +221,19 @@ hr {
 
 /* Gestaltung des Links */
 
-a:link {
+.a:link {
     color: #16697a;
     text-decoration: underline;
 
 }
 
 
-a:visited {
+.a:visited {
   color: #16697a;
   text-decoration: underline;
 }
 
-a:hover {
+.a:hover {
   color: #ef767a;
 }
 
