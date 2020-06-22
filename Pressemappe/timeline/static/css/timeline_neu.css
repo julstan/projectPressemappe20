@@ -19,13 +19,13 @@
 .top-container {
     height: 200px;
     top: 0;
-    padding: 80px;
+    padding: 65px 0 0;
     background: #F6F3F1;
     width: 100%;
 }
 
-.sticky-top {
-    
+#filtermenue {
+    background: #16697a;
 }
 
 
