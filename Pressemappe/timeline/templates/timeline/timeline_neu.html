@@ -46,8 +46,8 @@
 <div class="timeline">
 
 {% if personen %}
-    <button class="btn btn-outline secondary disabled" style="cursor:default;">Insgesamt {{personen.count}} Datensätze</button>
-    <button class="btn btn-outline secondary disabled" style="cursor:default;">Zeitraum {{firstentry}} bis {{lastentry}}</button>
+    <button class="btn nohover" style="cursor:default;">Insgesamt {{personen.count}} Datensätze</button>
+    <button class="btn nohover" style="cursor:default;">Zeitraum {{firstentry}} bis {{lastentry}}</button>
     {% for person in personen %}
     <h2 class="timeline__item timeline__item--year">{{person.jahr}}</h2>
     <div class="timeline__item">
