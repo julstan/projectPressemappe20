@@ -46,6 +46,8 @@
 <div class="timeline">
 
 {% if personen %}
+    <button class="btn btn-outline secondary disabled" style="cursor:default;">Insgesamt {{personen.count}} Datensätze</button>
+    <button class="btn btn-outline secondary disabled" style="cursor:default;">Zeitraum {{firstentry}} bis {{lastentry}}</button>
     {% for person in personen %}
     <h2 class="timeline__item timeline__item--year">{{person.jahr}}</h2>
     <div class="timeline__item">
@@ -77,7 +79,7 @@
                     {% endif %}
                     <h5>Land: {{person.country}}</h5>
                     <h5>Pressemappe-Objekt: <a class='a'  href="http://webopac.hwwa.de/PresseMappe20E/Digiview_MID.cfm?mid=P{{person.pm20id|slice:'3:'}}" target="_blank">hier klicken</a></h5>
-                    <h5>Wikidata-Objekt: <a class="a" href={{person.wikidata_object}}>hier klicken</a></h5>
+                    <h5>Wikidata-Objekt: <a class="a" href={{person.wikidata_object}} target="_blank">hier klicken</a></h5>
                 </div>
             </div>
         </div>
@@ -86,7 +88,8 @@
     {% endfor %}
 
 {% else %}
-    <p>Keine Daten</p>
+    <p>Keine Suchergebisse</p>
+    <a class="btn btn-outline-warning" href="/timeline/show">zurück</a>
 {% endif %}
 </div>
 
