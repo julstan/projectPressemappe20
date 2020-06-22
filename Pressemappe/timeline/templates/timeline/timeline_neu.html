@@ -2,13 +2,15 @@
 {% block content %}
 {% load static %}
 
-<div class="sticky-top pt-3 bg-light"> <!--Browser abhängig Chrome hat Probleme mit dieser Lösung-->
+
+<div class="top-container">
     <h1>Staatsoberhäupter Pressemappe des 20. Jahrhunderts</h1>
+</div>
 <div class="header" id="myHeader">
     <div class="row">
         <div class="col-12">
             <!--<div class="content">-->
-                <div class="card text-white text-center bg-info mb-3">
+                <div class="card text-white text-center bg-dark mb-3">
                     <div class="card-header">
                         <button class="btn btn-outline-light" type="button" data-toggle="collapse" data-target="#collapseFilter" aria-expanded="true" aria-controls="collapseFilter">
                             Filteroptionen
@@ -24,22 +26,19 @@
                             <small>Info: Bitte benutzen Sie das Format Jahr-Monat-Tag für Zeiträume
                                 </small>
                             <br>
-                            <button class="btn btn-warning" type="submit" data-toggle="tooltip" data-placement="bottom"
+                            <button class="btn btn-secondary" type="submit" data-toggle="tooltip" data-placement="bottom"
                                     title="Suchfilter können kombiniert werden">Suche</button>
-                                    <a type="button" class="btn btn-outline-light" href="/timeline/show">zurück</a>
+                                    <a class="btn btn-outline-light" href="/timeline/show">zurück</a>
 
                         </form>
 
                         </div>
                     </div>
                 </div>
-
     <!--</div>-->
         </div>
     </div>
 </div>
-</div>
-
 <!--<button class="btn btn-success"><a href="">Deutschland</a></button>-->
 
 
@@ -47,11 +46,9 @@
 <div class="timeline">
 
 {% if personen %}
-    <button class="btn btn-outline-dark disabled" style="cursor:default;">Insgesamt {{personen.count}} Datensätze</button>
-    <button class="btn btn-outline-dark disabled" style="cursor:default;">Zeitraum: {{firstentry}}-{{lastentry}} </button>
     {% for person in personen %}
-    <h2 class="timeline__item timeline__item--year shadow p-3 mb-5 bg-white rounded">{{person.jahr}}</h2>
-    <div class="timeline__item shadow p-3 mb-5 bg-white rounded">
+    <h2 class="timeline__item timeline__item--year">{{person.jahr}}</h2>
+    <div class="timeline__item">
         <div class="box">
             <div class="inhalt">
                 <div class="flex-container">
@@ -59,21 +56,19 @@
                         {% if person.picture != None %}
                             <img src="{{ person.picture }}">
                         {% else %}
-                           <img src="{% static 'images/avatar.jpeg' %}" alt="Kein Bild vorhanden">
+                           <img src="{% static "images/avatar.jpeg" %}" alt="Kein Bild vorhanden">
                         {% endif %}
                     </div>
                     <div class="name">
                         <h2>{{person.name}}</h2>
                         <hr>
-                        <h4 class="font-italic font-weight-bold">{{person.position_held}}</h4>
-                        <hr>
-                        <h4>{{person.position_held_start_EU}} bis {{person.position_held_end_EU}}</h4>
+                        <h4>{{person.position_held}} <br><hr>{{person.position_held_start_EU}} bis {{person.position_held_end_EU}}</h4>
                         <hr>
                     </div>
                 </div>
                 <br>
                 <div class="description">
-                    <h5><i class="fa fa-heart-o"></i> Lebensdaten: {{person.birthdayEU}} bis {{person.deathdayEU}} </h5>
+                    <h5>Lebensdaten: {{person.birthdayEU}} bis {{person.deathdayEU}} </h5>
                     {% if person.predecessor != None %}
                         <h5>Vorgänger: {{person.predecessor}}</h5>
                     {% endif %}
@@ -91,11 +86,8 @@
     {% endfor %}
 
 {% else %}
-    <div class="row">
-    <p class="btn btn-outline-danger disabled" style="cursor:default;">Keine Suchergebnisse</p>
-       <p><a type="button" class="btn btn-outline-secondary" href="/timeline/show">zurück</a></p>
-    </div>
-    {% endif %}
+    <p>Keine Daten</p>
+{% endif %}
 </div>
 
 
