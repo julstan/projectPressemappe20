@@ -19,10 +19,20 @@ def timeline(request):
         person.birthdayEU = (person.birthday[8:10] + "." + person.birthday[5:7] + "." + person.birthday[:4])
         if person.deathday is not None:
             person.deathdayEU = (person.deathday[8:10] + "." + person.deathday[5:7] + "." + person.deathday[:4])
-
+    jahre = []
+    for person in personen:
+        if person.jahr not in jahre:
+            jahre.append(person.jahr)
+        else:
+            continue
+    jahre.sort()
+    firstentry = jahre[0]
+    lastentry = jahre[-1]
     context = {
         'personen': personen,
         'myFilter': myFilter,
+        'firstentry': firstentry,
+        'lastentry': lastentry,
     }
     return render(request, "timeline/timeline_neu.html", context)
 
