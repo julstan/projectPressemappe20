@@ -9,8 +9,10 @@
 	 font-family: 'Raleway', sans-serif;
 }
 
-/* Überschrift */
+/*Bildeffekt*/
 
+
+/* Überschrift */
  h1 {
 	 text-align: center;
 	 font-family: 'Raleway', sans-serif;
@@ -26,18 +28,18 @@
 
 
 /* The sticky class is added to the header with JS when it reaches its scroll position */
-.sticky {
+/*.sticky {                     wurde auskommentiert, geht mit sticky von bootstrap nicht überein
   position: fixed;
   top: 0;
   width: 100%
 }
 
 /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .content {
+/*.sticky + .content {
   padding-top: 102px;
 }
 
-
+*/
 
 /* Zeitstrahl-Linie */
 
@@ -63,28 +65,25 @@
 	 clear: both;
 }
 
-/* Position der Zeitsrahl-Linie (responsive) */
 
- @media screen and (min-width: 700px) {
-	 .timeline {
-		 padding: 2rem;
-	}
-	 .timeline:before {
-		 left: calc(50% - 1px);
-		 right: auto;
-	}
-}
 
 /* Gestaltung der Boxen */
 
- .timeline__item {
+.timeline__item {
 	 padding: 1rem;
 	 border: 4px solid white;
 	 border-image-slice: 1;
 	 position: relative;
 	 margin: 1rem 3rem 1rem 1rem;
 	 clear: both;
+	 transition: all 0.4s;  /*wichtig für Effekt*/
 }
+
+.timeline__item:hover {
+     transform: scale(1.05);
+
+}
+
  .timeline__item:after, .timeline__item:before {
 	 content: '';
 	 position: absolute;
@@ -100,29 +99,7 @@
 
 /* Position der Boxen (responsive) */
 
- @media screen and (min-width: 700px) {
-	 .timeline__item {
-		 width: 44%;
-		 margin: 1rem;
-		 border: 4px solid #16697a;
-	}
 
-	/* Jede zweite Box wird rechts angeordnet */
-
-	 .timeline__item:nth-of-type(2n) {
-		 float: right;
-		 margin: 1rem;
-		 border-image-slice: 1;
-	}
-
-	/* Pfeilanzeige */
-
-	 .timeline__item:nth-of-type(2n):before {
-		 right: auto;
-		 left: -10px;
-		 border-color: transparent transparent #16697a #16697a;
-	}
-}
 
 /* Datumsboxen des Zeitstrahls */
 
@@ -143,23 +120,8 @@
 	 display: none;
 }
 
-/* positionieren der Datumsboxen */
 
- @media screen and (min-width: 700px) {
-	 .timeline__item--year {
-		 text-align: center;
-		 margin: 0 auto;
-	}
-	 .timeline__item--year:nth-of-type(2n) {
-		 float: none;
-		 margin: 0 auto;
-		 border-image: none;
-	}
-	 .timeline__item--year:nth-of-type(2n):before {
-		 display: none;
-	}
-}
- .timeline__title {
+ /*.timeline__title {                       löscht oder kommentiert die Code Teile aus, die ihr nicht benutzt
 	 margin: 0;
 	 font-family: 'Raleway', sans-serif;
 	 color: #ffa62b;
@@ -168,19 +130,17 @@
 	 border-image: linear-gradient(to right, skyblue 0%, hotpink 100%);
 	 border-image-slice: 1;
 	 text-align: center;
-}
+}*/
  /*.timeline__blurb {
 	 line-height: 1.5;
 	 font-size: 1rem;
 	 margin: 0.5rem 0 0;
 }*/
-.center {
+/*.center {
      display: flex;
      justify-content: center;
      text-align: center;
-
-
-}
+}*/
 .image {
     border: none;
 	border-image: linear-gradient(to right, skyblue 0%, hotpink 100%);
@@ -191,7 +151,6 @@
 
 hr {
     border: 2px solid #ffa62b;
-
 }
 
 /* Gestaltung des Links */
@@ -201,7 +160,6 @@ a:link {
     text-decoration: underline;
 
 }
-
 
 a:visited {
   color: #16697a;
@@ -233,7 +191,6 @@ a:hover {
 
 }
 
-
 img {
     width: 80%;
     object-fit: cover;
@@ -243,4 +200,57 @@ img {
 .flex-container {
   display: flex;
   flex-direction: row;
+}
+/*Media queries müssen immer nach ganz unten und eig reicht ein media querie für ein Format*/
+
+/* Position der Zeitsrahl-Linie (responsive) */
+@media screen and (min-width: 700px) {
+	 .timeline {
+		 padding: 2rem;
+	}
+	 .timeline:before {
+		 left: calc(50% - 1px);
+		 right: auto;
+	}
+
+
+/* positionieren der Datumsboxen */
+
+
+	 .timeline__item--year {
+		 text-align: center;
+		 margin: 0 auto;
+	}
+	 .timeline__item--year:nth-of-type(2n) {
+		 float: none;
+		 margin: 0 auto;
+		 border-image: none;
+	}
+	 .timeline__item--year:nth-of-type(2n):before {
+		 display: none;
+	}
+
+
+
+	 .timeline__item {
+		 width: 44%;
+		 margin: 1rem;
+		 /*border: 4px solid #16697a; warum wird das erst hier in den Queries bestimmt, allgemeine Sachen kommen in den Code darüber??*/
+	}
+
+	/* Jede zweite Box wird rechts angeordnet */
+
+	 .timeline__item:nth-of-type(2n) {
+		 float: right;
+		 margin: 1rem;
+		 border-image-slice: 1;
+	}
+
+	/* Pfeilanzeige */
+
+	 .timeline__item:nth-of-type(2n):before {
+		 right: auto;
+		 left: -10px;
+		 border-color: transparent transparent #16697a #16697a;
+	}
 }
