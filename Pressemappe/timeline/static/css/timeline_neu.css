@@ -74,6 +74,7 @@
 	 position: relative;
 	 margin: 1rem 3rem 1rem 1rem;
 	 clear: both;
+	 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
  .timeline__item:after, .timeline__item:before {
 	 content: '';
@@ -228,6 +229,7 @@ img {
     width: 80%;
     object-fit: cover;
     height: 300px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .flex-container {
