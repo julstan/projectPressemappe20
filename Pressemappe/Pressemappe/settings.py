@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CRISPY_TEMPLATE_PACK = 'Bootstrap3'
 
 # Application definition
 
@@ -39,7 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'timeline.apps.TimelineConfig',
     'django_filters',
+    #'bootstrapform',
+    #'crispy_forms',
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

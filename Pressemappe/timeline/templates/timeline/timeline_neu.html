@@ -1,6 +1,7 @@
 {% extends 'timeline/base.html' %}
 {% block content %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 
 <div class="top-container">
@@ -48,6 +49,8 @@
 {% if personen %}
     <button class="btn nohover pull-right" style="cursor:default;">Insgesamt {{personen.count}} Datensätze</button>
     <button class="btn nohover pull-right" style="cursor:default;">Zeitraum {{firstentry}} bis {{lastentry}}</button>
+    <a href="#" class="previous round">&#708;</a> <br>
+    <a href="#" class="next round">&#709;</a>
     {% for person in personen %}
     <h2 class="timeline__item timeline__item--year">{{person.jahr}}</h2>
     <div class="timeline__item">
@@ -95,4 +98,5 @@
 
 
 {% endblock content%}
+
 

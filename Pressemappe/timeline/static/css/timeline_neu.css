@@ -285,3 +285,21 @@ img {
   display: flex;
   flex-direction: row;
 }
+
+
+.round {
+    font-size: 200px;
+    border-radius: 20%;
+    background-color: #f6f3f1;
+}
+
+/* Erscheinen bei Hover, funktioniert nicht */
+ /*.description {
+  display: none;
+}
+
+
+ .name:hover + .description {
+  display: block;
+} */
+
