@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'timeline.apps.TimelineConfig',
     'django_filters',
-    #'bootstrapform',
-    #'crispy_forms',
+    'bootstrapform',
+    'crispy_forms',
 ]
 
 
