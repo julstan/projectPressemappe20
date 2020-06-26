@@ -303,3 +303,31 @@ img {
   display: block;
 } */
 
+
+/*.fix {
+  position: fixed;
+  top: 0px;
+  z-index: 1;
+  width: 100%;
+  background-color: #f1f1f1;
+} */
+
+/* The progress container (grey background) */
+.progress-container {
+  width: 100%;
+  height: 8px;
+  background: #ccc;
+}
+
+/* The progress bar (scroll indicator) */
+.progress-bar {
+  height: 8px;
+  background: blue;
+  width: 0%;
+}
+
+
+
+
+
+

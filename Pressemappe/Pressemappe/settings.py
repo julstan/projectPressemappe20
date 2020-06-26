@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'timeline.apps.TimelineConfig',
     'django_filters',
-    #'bootstrapform',
-    #'crispy_forms',
+    'bootstrapform',
+    'crispy_forms',
 ]
 
 
@@ -125,3 +125,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
