@@ -69,6 +69,27 @@
     cursor:default !important;
 }
 
+.btn-outline-dark {
+    background-color: #f6f3f1;
+    color: #5f464b;
+    border-color: #ffa62b !important;
+    border: 4px solid;
+    margin-left: 45.5%;
+    margin-bottom: 20px;
+
+}
+
+.btn-outline-dark:hover, .btn-outline-dark:focus, .btn-outline-dark:active, .btn-outline-dark.active, .open>.dropdown-toggle.btn-outline-dark {
+    color: #5f464b;
+    background-color: #ffa62b;
+    border-color: #ffa62b;
+}
+
+.btn-outline-dark:a {
+    color: #5f464b
+}
+
+
 /* Zeitstrahl-Linie */
 
  .timeline {
@@ -325,6 +346,11 @@ img {
   background: blue;
   width: 0%;
 }
+
+#hoch {
+    align: right;
+}
+
 
 
 
