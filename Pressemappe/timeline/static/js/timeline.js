@@ -16,6 +16,20 @@ for (i = 0; i < coll.length; i++) {
 */
 
 
+// Scroll Indicator
+
+window.onscroll = function() {myFunction()};
+
+function myFunction() {
+  let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  let height = document.body.scrollHeight - window.innerHeight;
+  let scrolled = document.getElementById("myBar").style.width;
+  if (height !== 0) {
+    scrolled = (winScroll / height) * 100;
+  }
+
+  document.getElementById("myBar").style.width = scrolled + "%";
+}
 
 
 

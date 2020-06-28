@@ -111,16 +111,7 @@
 
 <a class="btn btn-outline-dark" href="#top">zum Anfang &uarr;</a>
 
-<script>
-window.onscroll = function() {myFunction()};
 
-function myFunction() {
-  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  var scrolled = (winScroll / height) * 100;
-  document.getElementById("myBar").style.width = scrolled + "%";
-}
-</script>
 
 {% endblock content%}
 
