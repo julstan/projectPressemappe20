@@ -104,3 +104,32 @@ SELECT ?pm20idLabel ?person ?personLabel ?birthday ?deathday ?picture ?position_
 
   SERVICE wikibase:label { bd:serviceParam wikibase:language "de, en, fr, es, nl, pl, ru". }
  } ORDER BY ?genderLabel
+ 
+ ------------------------------------------------------------------------------------------
+ SELECT ?pm20idLabel ?person ?personLabel ?position_heldLabel ?countryLabel ?religionLabel ?subclass_of_religionLabel ?part_of_religionLabel
+ WHERE {
+  ?person wdt:P4293 ?pm20id.
+  ?person p:P4293/pq:P5592 ?workCount .
+  OPTIONAL {?person wdt:P569 ?birthday} .
+  OPTIONAL {?person wdt:P570 ?deathday }.
+  OPTIONAL {?person wdt:P18 ?picture } .
+  OPTIONAL {?person wdt:P21 ?gender } .
+  OPTIONAL { ?person wdt:P140 ?religion.
+            OPTIONAL {?religion wdt:P279 ?subclass_of_religion.}  #subclass of religion
+            OPTIONAL {?religion wdt:P361 ?part_of_religion. }}    #part of religion
+
+  ?person p:P39 ?s.  # ?s is the the statement node
+           ?s ps:P39  ?position_held.  # that simulates the predicate
+
+   {
+           ?position_held wdt:P279 wd:Q2285706 .}
+    UNION
+          { ?position_held wdt:P279 wd:Q48352 .}
+           ?position_held wdt:P17 ?country .
+           ?s pq:P580 ?start.  # this is an attribute (a qualifier)
+           OPTIONAL{?s pq:P582 ?end.}
+           OPTIONAL {?s pq:P1366 ?replacedby} .
+           OPTIONAL {?s pq:P1365 ?predecessor} .
+
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "de, en, fr, es, nl, pl, ru". }
+ } ORDER BY ?pm20idLabel
