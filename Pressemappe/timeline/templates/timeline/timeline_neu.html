@@ -16,7 +16,7 @@
 
  <div class="progress-container">
     <div class="progress-bar" id="myBar"></div>
-  </div>
+ </div>
 
     <div class="row">
         <div class="col-12">
@@ -83,7 +83,10 @@
                     </div>
                 </div>
                 <br>
-                <div class="description">
+                <button class="btn btn-outline-warning" type="button" data-toggle="collapse" data-target="#collapseDescription">
+                    +
+                </button>
+                <div class="collapse" id="collapseDescription">
                     <h5>Lebensdaten: {{person.birthdayEU}} bis {{person.deathdayEU}} </h5>
                     {% if person.predecessor != None %}
                         <h5>Vorgänger: {{person.predecessor}}</h5>
@@ -98,7 +101,6 @@
             </div>
         </div>
      </div>
-
     {% endfor %}
 
 {% else %}
