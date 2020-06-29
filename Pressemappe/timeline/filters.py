@@ -37,9 +37,12 @@ class PersonFilter(django_filters.FilterSet):
     EndDatum = DateFilter(label='Regierungsende', field_name="position_held_enddate", lookup_expr='lte',widget=TextInput(attrs={'placeholder': 'z.B. 2011-11-16'}))  #kleiner und gleich als
     gender = DynamicChoiceFilter(label='Geschlecht')
     religion = DynamicChoiceFilter(label='Religion')
+    position_held = DynamicChoiceFilter(label='Position')
+
+
     class Meta:
         model = Person
-        fields = ['name', 'gender', 'country', 'religion']
+        fields = ['name', 'position_held', 'gender', 'country', 'religion']
         exclude = ['pm20id', 'wikidata_object']
 
 

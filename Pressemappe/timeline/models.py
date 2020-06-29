@@ -24,7 +24,7 @@ class Person(models.Model):
     jahr = models.TextField(default=0, null = True)
 
     def __str__(self):
-        return "{}: {}".format(self.name, self.position_held)
+        return "{}".format(self.name)
 
 
 
