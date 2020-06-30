@@ -69,6 +69,16 @@
     cursor:default !important;
 }
 
+ @media screen and (min-width: 700px) {
+	 .btn.nohover {
+		 padding: 0.5rem;
+	}
+	 .btn.nohover:before {
+		 left: calc(50% - 1px);
+		 right: auto;
+	}
+}
+
 .btn-outline-dark {
     background-color: #f6f3f1;
     color: #5f464b;
