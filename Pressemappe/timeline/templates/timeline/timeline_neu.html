@@ -83,10 +83,11 @@
                     </div>
                 </div>
                 <br>
-                <button class="btn btn-outline-warning" type="button" data-toggle="collapse" data-target="#collapseDescription">
+                <button class="btn btn-outline-warning" type="button" data-toggle="collapse" data-target="#collapseDescription{{person.id}}">
                     +
                 </button>
-                <div class="collapse" id="collapseDescription">
+                <div class="collapse" id=collapseDescription{{person.id}}>
+                    <br>
                     <h5>Lebensdaten: {{person.birthdayEU}} bis {{person.deathdayEU}} </h5>
                     {% if person.predecessor != None %}
                         <h5>Vorgänger: {{person.predecessor}}</h5>
