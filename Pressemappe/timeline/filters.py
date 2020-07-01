@@ -1,5 +1,6 @@
 #Filter basierend auf unserem Model
 from django.forms.widgets import TextInput
+from django.forms.widgets import Select
 import django_filters
 from django_filters import DateFilter, CharFilter
 from .models import *
@@ -31,13 +32,13 @@ class DynamicChoiceFilter(DynamicChoiceMixin, django_filters.ChoiceFilter):
 
 
 class PersonFilter(django_filters.FilterSet):
-    name = CharFilter(label='Name', lookup_expr='icontains',widget=TextInput(attrs={'placeholder': 'z.B. Max Muster,...'}))
-    country = DynamicChoiceFilter(label='Land')
-    StartDatum = DateFilter(label='Regierungsbeginn', field_name="position_held_startdate", lookup_expr='gte', widget=TextInput(attrs={'placeholder': 'z.B. 1789-04-30'}))  #größer und gleich als
-    EndDatum = DateFilter(label='Regierungsende', field_name="position_held_enddate", lookup_expr='lte',widget=TextInput(attrs={'placeholder': 'z.B. 2011-11-16'}))  #kleiner und gleich als
-    gender = DynamicChoiceFilter(label='Geschlecht')
-    religion = DynamicChoiceFilter(label='Religion')
-    position_held = DynamicChoiceFilter(label='Position')
+    name = CharFilter(label='Name', lookup_expr='icontains',widget=TextInput(attrs={'placeholder': 'z.B. Max Muster,...', 'class': 'form-control'}))
+    country = DynamicChoiceFilter(label='Land', widget=Select(attrs={'class': 'form-control'}))
+    StartDatum = DateFilter(label='Regierungsbeginn', field_name="position_held_startdate", lookup_expr='gte', widget=TextInput(attrs={'placeholder': 'z.B. 1789-04-30', 'class': 'form-control'}))  #größer und gleich als
+    EndDatum = DateFilter(label='Regierungsende', field_name="position_held_enddate", lookup_expr='lte',widget=TextInput(attrs={'placeholder': 'z.B. 2011-11-16', 'class': 'form-control'}))  #kleiner und gleich als
+    gender = DynamicChoiceFilter(label='Geschlecht', widget=Select(attrs={'class': 'form-control'}))
+    religion = DynamicChoiceFilter(label='Religion', widget=Select(attrs={'class': 'form-control'}))
+    position_held = DynamicChoiceFilter(label='Position', widget=Select(attrs={'class': 'form-control'}))
 
 
     class Meta:

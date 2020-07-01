@@ -30,9 +30,42 @@
                     </div>
                     <div class="collapse" id="collapseFilter">
                         <div class="card-body">
-                        <form method="get">
-                            {{myFilter.form}} <!--{{myFilter.form|linebreaks}}-->
-                            <br>
+                        <form method="get" class="form-inline">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                {{myFilter.form.name}}
+                                </div>
+                                <div class="form-group">
+                                {{myFilter.form.position_held}}
+                                </div>
+                                <div class="form-group">
+                                {{myFilter.form.gender}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                {{myFilter.form.country}}
+                                </div>
+                                <div class="form-group">
+                                {{myFilter.form.religion}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                {{myFilter.form.StartDatum}}
+                                </div>
+                                <div class="form-group">
+                                {{myFilter.form.EndDatum}}
+                                </div>
+                            </div>
+                        </div>
+                             <!--{{myFilter.form|linebreaks}}-->
+
                             <!--<small>Eingabeformat: Jahr-Monat-Tag (z.B. 1900-03-22)</small><br>-->
                             <small>Info: Bitte benutzen Sie das Format Jahr-Monat-Tag für Zeiträume
                                 </small>
