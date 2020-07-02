@@ -25,6 +25,15 @@
     width: 100%;
 }
 
+/* Navigation Buttons */
+.sticky {
+    position: fixed;
+    bottom: 42.5%;
+    right: 0;
+    padding: 15px 5px 15px 0;
+}
+
+
 /* Farbe des Menüs */
 
 #filtermenue {
@@ -364,7 +373,6 @@ img {
   filter: opacity(80%);
   color: black;
 }
-
 
 
 

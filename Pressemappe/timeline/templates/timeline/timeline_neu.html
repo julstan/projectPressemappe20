@@ -86,6 +86,8 @@
     <button class="btn nohover" style="cursor:default;">Zeitraum {{firstentry}} bis {{lastentry}}</button>
 
 
+
+
 <div class="timeline">
 
 {% if personen %}
@@ -134,6 +136,15 @@
      </div>
     {% endfor %}
 
+<div class="btn-group-vertical sticky">
+    <button class="btn" type="button" onclick="scrollWin(0, -10000)" title="nach oben">
+        <i class="fas fa-chevron-up fa-lg"></i>
+    </button>
+    <button class="btn" type="button" onclick="scrollWin(0, 10000)" title="nach unten">
+        <i class="fas fa-chevron-down fa-lg"></i>
+    </button>
+</div>
+
 {% else %}
     <p>Keine Suchergebisse</p>
     <a class="btn btn-outline-warning" href="/timeline/show">zurück</a>
@@ -142,6 +153,12 @@
 
 <a class="btn btn-outline-dark" href="#top">zum Anfang &uarr;</a>
 
+
+<script>
+function scrollWin(x, y) {
+  window.scrollBy(x, y);
+}
+</script>
 
 
 {% endblock content%}
