@@ -115,21 +115,21 @@
                     </div>
                 </div>
                 <br>
-                <button class="btn btn-outline-warning" type="button" data-toggle="collapse" data-target="#collapseDescription{{person.id}}">
+                <button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#collapseDescription{{person.id}}">
                     +
                 </button>
                 <div class="collapse" id=collapseDescription{{person.id}}>
                     <br>
-                    <h5>Lebensdaten: {{person.birthdayEU}} bis {{person.deathdayEU}} </h5>
+                    <h5><b>Lebensdaten:</b> {{person.birthdayEU}} bis {{person.deathdayEU}} </h5>
                     {% if person.predecessor != None %}
-                        <h5>Vorgänger: {{person.predecessor}}</h5>
+                    <h5><b>Vorgänger:</b> {{person.predecessor}}</h5>
                     {% endif %}
                     {% if person.successor != None %}
-                        <h5>Nachfolger: {{person.successor}}</h5>
+                    <h5><b>Nachfolger:</b> {{person.successor}}</h5>
                     {% endif %}
-                    <h5>Land: {{person.country}}</h5>
-                    <h5>Pressemappe-Objekt: <a class='a'  href="http://webopac.hwwa.de/PresseMappe20E/Digiview_MID.cfm?mid=P{{person.pm20id|slice:'3:'}}" target="_blank">hier klicken</a></h5>
-                    <h5>Wikidata-Objekt: <a class="a" href={{person.wikidata_object}} target="_blank">hier klicken</a></h5>
+                    <h5><b>Land:</b> {{person.country}}</h5>
+                    <h5><b>Pressemappe-Objekt:</b> <a class='a'  href="http://webopac.hwwa.de/PresseMappe20E/Digiview_MID.cfm?mid=P{{person.pm20id|slice:'3:'}}" target="_blank">hier klicken</a></h5>
+                    <h5><b>Wikidata-Objekt:</b> <a class="a" href={{person.wikidata_object}} target="_blank">hier klicken</a></h5>
                 </div>
             </div>
         </div>

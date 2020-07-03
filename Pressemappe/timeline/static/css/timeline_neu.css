@@ -7,14 +7,15 @@
 	 background: #F6F3F1;
 	 color: #5f464b;
 	 padding: 0;
-	 font-family: 'Raleway', sans-serif;
+	 font-family: 'Futura', sans-serif;
 }
 
 /* Überschrift */
 
  h1 {
 	 text-align: center;
-	 font-family: 'Raleway', sans-serif;
+	 font-family: 'Futura', sans-serif;
+	 text-shadow: 3px 3px 4px #c4ccc6;
 }
 
 .top-container {
@@ -86,6 +87,27 @@
 		 button-align: center;
 		 margin: 10px 48px 0 auto;
 	}*/
+
+
+.btn-outline-primary {
+    background-color: #f6f3f1;
+    color: #5f464b;
+    border-color: #ffa62b !important;
+    border: 4px solid;
+    margin-left: 69%;
+
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active, .btn-outline-primary.active, .open>.dropdown-toggle.btn-outline-primary {
+    color: #5f464b;
+    background-color: #ffa62b;
+    border-color: #ffa62b;
+}
+
+.btn-outline-primary:a {
+    color: #5f464b
+}
+
 
 .btn-outline-dark {
     background-color: #f6f3f1;
