@@ -27,7 +27,7 @@
 }
 
 /* Navigation Buttons */
-.sticky {
+.scroll-buttons {
     position: fixed;
     bottom: 42.5%;
     right: 0;
