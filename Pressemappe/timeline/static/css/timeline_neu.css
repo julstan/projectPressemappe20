@@ -72,7 +72,6 @@
     width: 225px;
     height: 50px;
     padding: 0px;
-
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -80,6 +79,7 @@
 .btn.nohover:hover {
     cursor:default !important;
     pointer-events: none;
+    color: #5f464b;
 }
 
 /*@media screen and (min-width: 700px) {
@@ -395,6 +395,21 @@ img {
   filter: opacity(80%);
   color: black;
 }
+
+
+.arrow {
+    color: #16697a;
+}
+
+.btn.arrow:hover {
+    color: #ffa62b;
+}
+
+.btn:focus {
+  outline: none !important;
+  box-shadow: none;
+}
+
 
 
 
