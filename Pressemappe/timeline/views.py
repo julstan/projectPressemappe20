@@ -124,10 +124,10 @@ def update_database ():
                     person.predecessor = row ["predecessor"]
                 if row ["successor"] != "":
                     person.successor = row ["successor"]
-                #person.save()
-                
+                person.save()
+
             else:
                 count_old += 1
 
-    print ("old data: " + str (count_old))
-    print ("new data: " + str (count_new))
+    print ("amount old datasets: " + str (count_old))
+    print ("amount new datasets that were added to your database: " + str (count_new))
