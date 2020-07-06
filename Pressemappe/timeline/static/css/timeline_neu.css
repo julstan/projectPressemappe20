@@ -53,6 +53,10 @@
 
 }
 
+.Searchbutton {
+    margin-left: 14.5%;
+}
+
 .btn-outline-warning:hover, .btn-outline-warning:focus, .btn-outline-warning:active, .btn-outline-warning.active, .open>.dropdown-toggle.btn-outline-warning {
     color: #5f464b;
     background-color: #ffa62b;
@@ -408,6 +412,11 @@ img {
 .btn:focus {
   outline: none !important;
   box-shadow: none;
+}
+
+small {
+    color: white;
+    padding: 20px
 }
 
 
