@@ -32,7 +32,7 @@
                         <div class="card-body">
                         <form method="get" class="form-inline">
                             <div class="d-flex justify-content-center flex-wrap">
-                                <div class="form-group col-md-1">
+                                <div class="form-group col-md-4">
                                     <label class="text-light">Name: </label>
                                 {{myFilter.form.name}}
                                     <label class="text-light">Position: </label>
@@ -47,25 +47,27 @@
                                 {{myFilter.form.StartDatum}}
                                     <label class="text-light">Regierungsende: </label>
                                 {{myFilter.form.EndDatum}}
+                                 <div class="d-flex justify-content-center">
+                                <!--<small>Eingabeformat: Jahr-Monat-Tag (z.B. 1900-03-22)</small><br>-->
+                                <small>Info: Bitte benutzen Sie das Format Jahr-Monat-Tag für Zeiträume</small>
+                            </div>
                                 </div>
 
 
-                                <div class="form-group col-md-10">
+                                <div class="form-group col-md-0">
                                 </div>
 
                              <!--{{myFilter.form|linebreaks}}-->
                             </div>
 
-                            <div class="d-flex justify-content-center">
-                                <!--<small>Eingabeformat: Jahr-Monat-Tag (z.B. 1900-03-22)</small><br>-->
-                                <small>Info: Bitte benutzen Sie das Format Jahr-Monat-Tag für Zeiträume</small>
-                            </div>
-                            <div class="Searchbutton">
+
+                            <br>
+                        </form>
+                              <div class="Searchbutton">
                                 <button class="btn btn-outline-warning" type="submit" data-toggle="tooltip" data-placement="bottom"
                                         title="Suchfilter können kombiniert werden">Suche</button>
                                         <a class="btn btn-outline-warning" href="/timeline/show">zurück</a>
                             </div>
-                        </form>
                         </div>
                     </div>
                 </div>
