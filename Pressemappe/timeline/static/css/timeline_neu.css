@@ -159,7 +159,7 @@
 
 /* Position der Zeitsrahl-Linie (responsive) */
 
- @media screen and (min-width: 700px) {
+ @media screen and (min-width: 800px) {
 	 .timeline {
 		 padding: 2rem;
 	}
@@ -201,7 +201,7 @@
 
 /* Position der Boxen (responsive) */
 
- @media screen and (min-width: 700px) {
+ @media screen and (min-width: 800px) {
 	 .timeline__item {
 		 width: 44%;
 		 margin: 1rem;
@@ -246,7 +246,7 @@
 
 /* positionieren der Datumsboxen */
 
- @media screen and (min-width: 700px) {
+ @media screen and (min-width: 800px) {
 	 .timeline__item--year {
 		 text-align: center;
 		 margin: 0 auto;
