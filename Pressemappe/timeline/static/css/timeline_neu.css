@@ -393,9 +393,9 @@ img {
 }
 
 .top-container {
-  background: url("/static/images/chess-982260_1920.jpg") 50% 0 no-repeat fixed;
-  filter: grayscale(100%);
-  filter: opacity(80%);
+  background: url("/static/images/bg_map2.png") 50% 0 no-repeat fixed;
+  /* filter: grayscale(100%);
+  filter: opacity(80%); */
   color: black;
 }
 
