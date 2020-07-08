@@ -19,6 +19,7 @@
      opacity: 0.8;
      margin-left: 26%;
      margin-right: 26%;
+     border: solid;
      color: #CCCCCC;
      text-shadow: 0 -1px 1px #666666, 0 1px 1px #FFFFFF;
      font-size: calc(25px + (28 - 16) * ((100vw - 320px) / (1600 - 320)));
