@@ -32,7 +32,7 @@ class DynamicChoiceFilter(DynamicChoiceMixin, django_filters.ChoiceFilter):
 
 
 class PersonFilter(django_filters.FilterSet):
-    name = CharFilter(label='Name', lookup_expr='icontains',widget=TextInput(attrs={'placeholder': 'Max Mustermann, Erika Mustermann', 'class': 'form-control w-100'}))
+    name = CharFilter(label='Name', lookup_expr='icontains',widget=TextInput(attrs={'placeholder': 'z.B. George Washington, Thomas Jefferson', 'class': 'form-control w-100'}))
     country = DynamicChoiceFilter(label='Land', widget=Select(attrs={'class': 'form-control w-100'}))
     StartDatum = DateFilter(label='Regierungsbeginn', field_name="position_held_startdate", lookup_expr='gte', widget=TextInput(attrs={'placeholder': 'YYYY-MM-DD', 'class': 'form-control w-100'}))  #größer und gleich als
     EndDatum = DateFilter(label='Regierungsende', field_name="position_held_enddate", lookup_expr='lte',widget=TextInput(attrs={'placeholder': 'YYYY-MM-DD', 'class': 'form-control w-100'}))  #kleiner und gleich als
