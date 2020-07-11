@@ -87,7 +87,11 @@
 </form>
 
 {% if old != "undefined" %}
-{{old}} {{new}} {{message}}
+{{old}} {{new}}
+{% endif %}
+
+{%if message != "undefined" %}
+{{ message }}
 {% endif %}
 
 
