@@ -44,11 +44,16 @@ def timeline(request):
 
     old = "undefined"
     new = "undefined"
+    message = "undefined"
 
     if "update_button" in request.GET:
-        update_items = update_database()
-        old = update_items["old"]
-        new = update_items["new"]
+        try:
+            update_items = update_database()
+            old = update_items["old"]
+            new = update_items["new"]
+            message = "Das Datenbankupdate war erfolgreich"
+        except:
+            message = "Das Datenbankupdate war leider nicht erfolgreich"
 
 
     context = {
@@ -58,6 +63,7 @@ def timeline(request):
         'lastentry': lastentry,
         'old': old,
         'new': new,
+        'message': message
     }
 
     return render(request, "timeline/timeline_neu.html", context)
