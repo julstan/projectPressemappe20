@@ -81,7 +81,13 @@
 <button class="btn nohover" style="cursor:default;">Insgesamt {{personen.count}} Treffer</button>
 <br>
 <button class="btn nohover" style="cursor:default;">Zeitraum {{firstentry}} bis {{lastentry}}</button>
-
+<br>
+<form method="get" action="">
+<button type="submit" name="update_button" class="btn">Update</button>
+</form>
+{% if old != "undefined" %}
+{{old}} {{new}}
+{% endif %}
 
 
 
