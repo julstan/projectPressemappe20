@@ -51,9 +51,9 @@ def timeline(request):
             update_items = update_database()
             old = update_items["old"]
             new = update_items["new"]
-            message = "Das Datenbankupdate war erfolgreich"
+            message = "Datenbank-Update erfolgreich!"
         except:
-            message = "Das Datenbankupdate war leider nicht erfolgreich"
+            message = "Datenbank-Update leider nicht erfolgreich!"
 
 
     context = {

@@ -78,21 +78,12 @@
 </div>
 <!--<button class="btn btn-success"><a href="">Deutschland</a></button>-->
 
-<button class="btn nohover" style="cursor:default;">Insgesamt {{personen.count}} Treffer</button>
-<br>
-<button class="btn nohover" style="cursor:default;">Zeitraum {{firstentry}} bis {{lastentry}}</button>
-<br>
-<form method="get" action="">
-<button type="submit" name="update_button" class="btn">Update</button>
-</form>
 
-{% if old != "undefined" %}
-{{old}} {{new}}
-{% endif %}
+<div class="box_angaben">Insgesamt {{personen.count}} Treffer</div>
+<div class="box_angaben">Zeitraum {{firstentry}} bis {{lastentry}}</div>
 
-{%if message != "undefined" %}
-{{ message }}
-{% endif %}
+
+
 
 
 
@@ -145,28 +136,38 @@
     {% endfor %}
 
 <div class="btn-group-vertical scroll-buttons">
-    <button class="btn arrow" type="button" onclick="scrollWin(0, -10000)" title="nach oben">
+     <button class="btn arrow" type="button" onclick="scrollUp()" title="nach oben">
         <i class="fas fa-chevron-up fa-lg"></i>
     </button>
-    <button class="btn arrow" type="button" onclick="scrollWin(0, 10000)" title="nach unten">
+    <button class="btn arrow" type="button" onclick="scrollDown()" title="nach unten">
         <i class="fas fa-chevron-down fa-lg"></i>
     </button>
 </div>
 
 {% else %}
-    <p>Keine Suchergebisse</p>
-    <a class="btn btn-outline-warning" href="/timeline/show">zurück</a>
+    <div class="box_noresult">Keine Suchergebisse</div>
+    <a class="btn btn-outline-danger" href="/timeline/show">zurück</a>
 {% endif %}
 </div>
 
 <a class="btn btn-outline-dark" href="#top">zum Anfang &uarr;</a>
 
 
-<script>
-function scrollWin(x, y) {
-  window.scrollBy(x, y);
-}
-</script>
+
+
+<form method="get" action="">
+<button type="submit" name="update_button" class="btn btn-outline-secondary">Datenbank-Update</button>
+{%if message != "undefined" %}
+    <br>
+<div class="box_message">{{ message }}</div>
+{% endif %}
+{% if old != "undefined" %}
+<div class="box_message" style="cursor:default;">Alte Datensätze: {{old}}</div> <div class="box_message">Neue Datensätze: {{new}}</div>
+{% endif %}
+</form>
+
+
+
 
 
 {% endblock content%}

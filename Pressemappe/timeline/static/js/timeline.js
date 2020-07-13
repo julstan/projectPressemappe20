@@ -34,4 +34,10 @@ function myFunction() {
 // Pfeile
 
 
-
+function scrollUp() {
+    // window.scrollBy(0, -window.innerHeight);
+    window.scrollBy(0, -10000);
+}
+function scrollDown() {
+    window.scrollBy(0, 10000);
+}
