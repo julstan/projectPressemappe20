@@ -542,8 +542,38 @@ background: red;
 }
 
 
+/* Footer mit Logos */
 
+footer {
+    padding: 20px 0 10px;
+    text-align: center;
+    background: #16697a;
+    width: 100%;
 
+}
 
+footer img {
+    height: auto;
+}
 
+footer .row {
+  display: flex;
+}
 
+footer .col {
+  flex: 33.33%;
+  padding: 5px;
+}
+
+#img1 img{
+    background: white;
+    width: 100px;
+}
+
+#img2 img{
+    width: 170px;
+}
+
+#img3 img{
+    width: 85px;
+}
