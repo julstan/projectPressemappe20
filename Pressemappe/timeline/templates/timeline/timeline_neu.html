@@ -4,12 +4,9 @@
 {% load crispy_forms_tags %}
 
 
-
-
 <div class="top-container">
     <h1>Staatsoberhäupter der Pressemappe des 20. Jahrhunderts</h1>
 </div>
-
 
 
 <div class="sticky-top">
@@ -17,7 +14,6 @@
  <div class="progress-container">
     <div class="progress-bar" id="myBar"></div>
  </div>
-
     <div class="row">
         <div class="col-12">
             <!--<div class="content">-->
@@ -81,8 +77,6 @@
 
 <div class="box_angaben">Insgesamt {{personen.count}} Treffer</div>
 <div class="box_angaben">Zeitraum {{firstentry}} bis {{lastentry}}</div>
-
-
 
 
 
@@ -153,8 +147,6 @@
 <a class="btn btn-outline-dark" href="#top">zum Anfang &uarr;</a>
 
 
-
-
 <form method="get" action="">
 <button type="submit" name="update_button" class="btn btn-outline-secondary">Datenbank-Update</button>
 {%if message != "undefined" %}
@@ -177,8 +169,6 @@
         <img src="{% static "images/HdM.jpg" %}" alt="Wikidata-Logo">
     </div>
 </footer>
-
-
 
 {% endblock content%}
 

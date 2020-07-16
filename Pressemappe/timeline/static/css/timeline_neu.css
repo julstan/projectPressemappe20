@@ -67,6 +67,7 @@
 
 /* Styling der Buttons von Bootstrap */
 
+/* Button der Fileroptionen sowie Suche und zurück */
 .btn-outline-warning {
     background-color: #f6f3f1;
     color: #5f464b;
@@ -75,13 +76,9 @@
 
 }
 
-.searchbutton {
-    margin: 0 auto;
-}
-
 .btn-outline-warning:hover, .btn-outline-warning:focus, .btn-outline-warning:active, .btn-outline-warning.active, .open>.dropdown-toggle.btn-outline-warning {
     color: #5f464b;
-    background-color: #ffa62b;
+    background-color: #ffa62b !important;
     border-color: #ffa62b;
 }
 
@@ -89,6 +86,101 @@
     color: #5f464b
 }
 
+
+/* Button für weitere Informationen in den Boxen */
+.btn-outline-primary {
+    background-color: #f6f3f1;
+    color: #5f464b;
+    border-color: #ffa62b !important;
+    border: 4px solid;
+    margin-left: 0%;
+    padding-right: 48.5%;
+    padding-left: 48.5%;
+
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active, .btn-outline-primary.active, .open>.dropdown-toggle.btn-outline-primary {
+    color: #5f464b;
+    background-color: #ffa62b !important;
+    border-color: #ffa62b;
+}
+
+.btn-outline-primary:a {
+    color: #5f464b
+}
+
+/* Button zum Update der Daten */
+.btn-outline-secondary{
+    background-color: #f6f3f1;
+    color: #5f464b;
+    border-color: #ffa62b !important;
+    border: 4px solid;
+    margin-left: 3%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-outline-secondary:hover, .btn-outline-secondary:focus, .btn-outline-secondary:active, .btn-outline-secondary.active, .open>.dropdown-toggle.btn-outline-secondary {
+    color: #5f464b;
+    background-color: #ffa62b !important;
+    border-color: #ffa62b;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-outline-secondary:a {
+    color: #5f464b
+}
+
+/* Button um auf Timeline zurück zu springen, wenn keine Suchergebnisse gefunden wurden */
+.btn-outline-danger {
+    background-color: #f6f3f1;
+    color: #5f464b;
+    border-color: #ffa62b !important;
+    border: 4px solid;
+    margin-left: -3%;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-outline-danger:hover, .btn-outline-danger:focus, .btn-outline-danger:active, .btn-outline-danger.active, .open>.dropdown-toggle.btn-outline-danger {
+    color: #5f464b;
+    background-color: #ffa62b !important;
+    border-color: #ffa62b;
+}
+
+.btn-outline-danger:a {
+    color: #5f464b
+}
+
+
+/* Button um zum Anfang der Seite zu springen */
+.btn-outline-dark {
+    background-color: #f6f3f1;
+    color: #5f464b;
+    border-color: #ffa62b !important;
+    border: 4px solid;
+    margin-left: 3%;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-outline-dark:hover, .btn-outline-dark:focus, .btn-outline-dark:active, .btn-outline-dark.active, .open>.dropdown-toggle.btn-outline-dark {
+    color: #5f464b;
+    background-color: #ffa62b !important;
+    border-color: #ffa62b;
+}
+
+.btn-outline-dark:a {
+    color: #5f464b
+}
+
+/* enthält Suche und zurück */
+.searchbutton {
+    margin: 0 auto;
+}
+
+
+/* Anzeige-Boxen */
+/* Info-Boxen Insgesamte Treffer und Zeitraum */
 .box_angaben {
     background-color: #f6f3f1;
     text-align: center;
@@ -104,71 +196,7 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-
-/*.btn.nohover:hover, btn-outline-nohover:focus, .btn-outline-nohover:active, .btn-outline-nohover.active, .open>.dropdown-toggle.btn-outline-nohover {
-    cursor:default !important;
-    pointer-events: none;
-    color: #5f464b;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-} */
-
-
-
-.btn-outline-primary {
-    background-color: #f6f3f1;
-    color: #5f464b;
-    border-color: #ffa62b !important;
-    border: 4px solid;
-    margin-left: 0%;
-    padding-right: 48.5%;
-    padding-left: 48.5%;
-
-}
-
-.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active, .btn-outline-primary.active, .open>.dropdown-toggle.btn-outline-primary {
-    color: #5f464b;
-    background-color: #ffa62b;
-    border-color: #ffa62b;
-}
-
-.btn-outline-primary:a {
-    color: #5f464b
-}
-
-
-.btn-outline-secondary{
-    background-color: #f6f3f1;
-    color: #5f464b;
-    /*margin: 10px 48px 0 auto;*/
-    border-color: #ffa62b !important;
-    border: 4px solid;
-    margin-left: 3%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.btn-outline-secondary:hover, .btn-outline-secondary:focus, .btn-outline-secondary:active, .btn-outline-secondary.active, .open>.dropdown-toggle.btn-outline-secondary {
-    color: #5f464b;
-    background-color: #ffa62b;
-    border-color: #ffa62b;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.box_data{
-    background-color: #f6f3f1;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 40px;
-    color: #5f464b;
-    border-color: #16697a !important;
-    border: 4px solid;
-    margin: 10px 10px 0 auto;
-    width: 200px;
-    height: 50px;
-    padding: 0px;
-    text-decoration: none;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
+/* Info-Box wenn keine Treffer gefunden wurden */
 .box_noresult{
     background-color: #f6f3f1;
     text-align: center;
@@ -186,14 +214,8 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.btn-outline-success.:hover {
-    cursor:default !important;
-    pointer-events: none;
-    color: #5f464b;
-    text-decoration: none;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
 
+/* Info-Boxen zum Update (erfolgreich/nicht erfolgreich, alt, neu */
 .box_message {
     background-color: #f6f3f1;
     text-align: center;
@@ -209,50 +231,6 @@
     padding: 0px;
     text-decoration: none !important;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.btn-outline-danger {
-    background-color: #f6f3f1;
-    color: #5f464b;
-    border-color: #ffa62b !important;
-    border: 4px solid;
-    margin-left: -3%;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.btn-outline-danger:hover, .btn-outline-danger:focus, .btn-outline-danger:active, .btn-outline-danger.active, .open>.dropdown-toggle.btn-outline-danger {
-    color: #5f464b;
-    background-color: #ffa62b;
-    border-color: #ffa62b;
-}
-
-.btn-outline-danger:a {
-    color: #5f464b
-}
-
-.disabled {
- pointer-events: none;
-}
-
-.btn-outline-dark {
-    background-color: #f6f3f1;
-    color: #5f464b;
-    border-color: #ffa62b !important;
-    border: 4px solid;
-    margin-left: 3%;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.btn-outline-dark:hover, .btn-outline-dark:focus, .btn-outline-dark:active, .btn-outline-dark.active, .open>.dropdown-toggle.btn-outline-dark {
-    color: #5f464b;
-    background-color: #ffa62b;
-    border-color: #ffa62b;
-}
-
-.btn-outline-dark:a {
-    color: #5f464b
 }
 
 
@@ -393,11 +371,7 @@
 	 border-image-slice: 1;
 	 text-align: center;
 }
- /*.timeline__blurb {
-	 line-height: 1.5;
-	 font-size: 1rem;
-	 margin: 0.5rem 0 0;
-}*/
+
 .center {
      display: flex;
      justify-content: center;
@@ -451,14 +425,6 @@ hr {
     text-align: center;
 }
 
-/*
-.description {
-
-    text-align: left;
-
-}
-*/
-
 
 img {
     width: 80%;
@@ -466,9 +432,6 @@ img {
     height: 300px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
-
-
 
 .flex-container {
   display: flex;
@@ -482,24 +445,7 @@ img {
     background-color: #f6f3f1;
 }
 
-/* Erscheinen bei Hover, funktioniert nicht */
- /*.description {
-  display: none;
-}
 
-
- .name:hover + .description {
-  display: block;
-} */
-
-
-/*.fix {
-  position: fixed;
-  top: 0px;
-  z-index: 1;
-  width: 100%;
-  background-color: #f1f1f1;
-} */
 
 /* The progress container (grey background) */
 .progress-container {
@@ -541,6 +487,7 @@ small {
     padding: 20px
 }
 
+<<<<<<< Updated upstream
 .scrollbar::-webkit-scrollbar {
       width: 20px;
 }
@@ -554,6 +501,8 @@ small {
 background: red;
   border-radius: 10px;
 }
+=======
+>>>>>>> Stashed changes
 
 /* Footer mit Logos */
 
@@ -561,7 +510,8 @@ footer {
     padding: 20px 0 10px;
     text-align: center;
     background: #16697a;
-    width: 100%;
+    width: 101%;
+
 
 }
 
