@@ -15,6 +15,20 @@
  h1 {
 	 text-align: center;
 	 font-family: 'Barlow', sans-serif;
+     background: #16697a;;
+     padding: 5px 15px;
+     margin-left: 26%;
+     margin-right: 26%;
+     color: #F6F3F1;
+     border-style: groove;
+     border-width: 1px;
+     font-size: calc(25px + (28 - 16) * ((100vw - 320px) / (1600 - 320)));
+}
+
+
+ /* h1 {
+	 text-align: center;
+	 font-family: 'Barlow', sans-serif;
      background: #5c5c5b;
      opacity: 0.8;
      margin-left: 26%;
@@ -25,7 +39,7 @@
      font-size: calc(25px + (28 - 16) * ((100vw - 320px) / (1600 - 320)));
 }
 
-
+*/
 
 .top-container {
     height: 200px;
@@ -540,7 +554,6 @@ small {
 background: red;
   border-radius: 10px;
 }
-
 
 /* Footer mit Logos */
 
