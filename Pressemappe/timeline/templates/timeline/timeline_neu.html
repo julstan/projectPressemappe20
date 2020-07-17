@@ -19,30 +19,38 @@
             <!--<div class="content">-->
                 <div class="card text-center mb-3" id="filtermenue">
                     <div class="card-header">
-                        <button class="btn btn-outline-warning" type="button" data-toggle="collapse" data-target="#collapseFilter" aria-expanded="true" aria-controls="collapseFilter">
+                        <button class="btn btn-outline-warning" type="button" data-toggle="modal" data-target="#exampleModal">
                             Filteroptionen
                         </button>
                         <!-- falls man den Button nicht in der vollen Länge haben möchte, dann aria-expanded="false"-->
                     </div>
-                    <div class="collapse" id="collapseFilter">
-                        <section class="scrollbar">
-                        <div class="card-body">
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Wähle die gewünschten Filter</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                           <div class="card-body">
                         <form method="get" class="form-inline">
                             <div class="d-flex justify-content-center flex-wrap">
-                               <div class="form-group col-md-4">
-                                    <label class="text-light">Name: </label>
+                               <div class="form-group col-md-10">
+                                    <label>Name: </label>
                                 {{myFilter.form.name}}
-                                    <label class="text-light">Position: </label>
+                                    <label>Position: </label>
                                 {{myFilter.form.position_held}}
-                                    <label class="text-light">Geschlecht: </label>
+                                    <label>Geschlecht: </label>
                                 {{myFilter.form.gender}}
-                                     <label class="text-light">Land: </label>
+                                     <label>Land: </label>
                                 {{myFilter.form.country}}
-                                    <label class="text-light">Religion: </label>
+                                    <label>Religion: </label>
                                 {{myFilter.form.religion}}
-                                    <label class="text-light">Regierungsbeginn: </label>
+                                    <label>Regierungsbeginn: </label>
                                 {{myFilter.form.StartDatum}}
-                                    <label class="text-light">Regierungsende: </label>
+                                    <label>Regierungsende: </label>
                                 {{myFilter.form.EndDatum}}
                                  <div class="d-flex justify-content-center">
                                 <!--<small>Eingabeformat: Jahr-Monat-Tag (z.B. 1900-03-22)</small><br>-->
@@ -54,23 +62,19 @@
                                 <button class="btn btn-outline-warning" type="submit" data-toggle="tooltip" data-placement="bottom"
                                         title="Suchfilter können kombiniert werden">Suche</button>
                                         <a class="btn btn-outline-warning" href="/timeline/show">zurück</a>
-                            </div>
-
                              <!--{{myFilter.form|linebreaks}}-->
                             </div>
-
-<!-- <div class="form-group col-md-0"> -->
+                            </div>
                                 </div>
-
                         </form>
-
                         </div>
-                        </section>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                     </div>
                 </div>
-            <!--</div>-->
         </div>
-    </div>
 </div>
 <!--<button class="btn btn-success"><a href="">Deutschland</a></button>-->
 

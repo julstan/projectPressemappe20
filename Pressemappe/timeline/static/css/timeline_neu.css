@@ -148,7 +148,7 @@
 }
 
 .btn-outline-danger:a {
-    color: #5f464b
+    color: #5f464b;
 }
 
 
@@ -483,7 +483,7 @@ img {
 }
 
 small {
-    color: white;
+    color: #f6f3f1;
     padding: 20px
 }
 
@@ -520,4 +520,17 @@ footer .col {
 
 #img3 img{
     width: 85px;
+}
+
+.modal-header {
+  background-color: #ffa62b;
+  color: white;
+  border: 1px solid white;
+}
+
+.modal-body {
+    background-color: #16697a;
+    color: #f6f3f1;
+    border: 1px white;
+    border-style: none solid solid solid;
 }

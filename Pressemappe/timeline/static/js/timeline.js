@@ -25,3 +25,8 @@ function scrollUp() {
 function scrollDown() {
     window.scrollBy(0, 10000);
 }
+
+
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
