@@ -3,105 +3,98 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-
+<!-- Überschrift -->
 <div class="top-container">
     <h1>Staatsoberhäupter der Pressemappe des 20. Jahrhunderts</h1>
 </div>
 
-
+<!-- Filter und Scroll Indicator fixiert -->
 <div class="sticky-top">
-
+<!-- Scroll Indicator -->
  <div class="progress-container">
     <div class="progress-bar" id="myBar"></div>
  </div>
+    <!-- Filterbutton -->
     <div class="row">
         <div class="col-12">
-            <!--<div class="content">-->
-                <div class="card text-center mb-3" id="filtermenue">
-                    <div class="card-header">
-                        <button class="btn btn-outline-warning" type="button" data-toggle="modal" data-target="#exampleModal">
-                            Filteroptionen
-                        </button>
-                        <!-- falls man den Button nicht in der vollen Länge haben möchte, dann aria-expanded="false"-->
-                    </div>
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
-                              <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Wähle die gewünschten Filter</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                    </button>
-                                  </div>
-                                  <div class="modal-body">
-                                           <div class="card-body">
-                        <form method="get" class="form-inline">
-                            <div class="d-flex justify-content-center flex-wrap">
-                               <div class="form-group col-md-10">
-                                    <label>Name: </label>
-                                {{myFilter.form.name}}
-                                    <label>Position: </label>
-                                {{myFilter.form.position_held}}
-                                    <label>Geschlecht: </label>
-                                {{myFilter.form.gender}}
-                                     <label>Land: </label>
-                                {{myFilter.form.country}}
-                                    <label>Religion: </label>
-                                {{myFilter.form.religion}}
-                                    <label>Regierungsbeginn: </label>
-                                {{myFilter.form.StartDatum}}
-                                    <label>Regierungsende: </label>
-                                {{myFilter.form.EndDatum}}
-                                 <div class="d-flex justify-content-center">
-                                <!--<small>Eingabeformat: Jahr-Monat-Tag (z.B. 1900-03-22)</small><br>-->
-                                <small>Info: Bitte benutzen Sie das Format Jahr-Monat-Tag für Zeiträume</small>
+            <div class="card text-center mb-3" id="filtermenue">
+                <div class="card-header">
+                    <button class="btn btn-outline-warning" type="button" data-toggle="modal" data-target="#exampleModal">
+                        Filteroptionen
+                    </button>
+                </div>
+                <!-- Filter Modal Header -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Wähle die gewünschten Filter</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
-                               <!-- </div>-->
-
-                                <div class="searchbutton">
-                                <button class="btn btn-outline-warning" type="submit" data-toggle="tooltip" data-placement="bottom"
-                                        title="Suchfilter können kombiniert werden">Suche</button>
-                                        <a class="btn btn-outline-warning" href="/timeline/show">zurück</a>
-                             <!--{{myFilter.form|linebreaks}}-->
-                            </div>
-                            </div>
+                            <!-- Modal Body -->
+                            <div class="modal-body">
+                                <div class="card-body">
+                                    <form method="get" class="form-inline">
+                                        <div class="d-flex justify-content-center flex-wrap">
+                                            <div class="form-group col-md-10">
+                                                <label>Name: </label>
+                                                {{myFilter.form.name}}
+                                                <label>Position: </label>
+                                                {{myFilter.form.position_held}}
+                                                <label>Geschlecht: </label>
+                                                {{myFilter.form.gender}}
+                                                <label>Land: </label>
+                                                {{myFilter.form.country}}
+                                                <label>Religion: </label>
+                                                {{myFilter.form.religion}}
+                                                <label>Regierungsbeginn: </label>
+                                                {{myFilter.form.StartDatum}}
+                                                <label>Regierungsende: </label>
+                                                {{myFilter.form.EndDatum}}
+                                                <div class="d-flex justify-content-center">
+                                                    <small>Info: Bitte benutzen Sie das Format Jahr-Monat-Tag für Zeiträume</small>
+                                                </div>
+                                                <div class="searchbutton">
+                                                    <button class="btn btn-outline-warning" type="submit" data-toggle="tooltip" data-placement="bottom"
+                                                            title="Suchfilter können kombiniert werden">Suche</button>
+                                                    <a class="btn btn-outline-warning" href="/timeline/show">zurück</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                        </form>
+                            </div>
                         </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
                     </div>
                 </div>
+            </div>
         </div>
+    </div>
 </div>
-<!--<button class="btn btn-success"><a href="">Deutschland</a></button>-->
 
-
+<!-- Info-Boxen -->
 <div class="box_angaben">Insgesamt {{personen.count}} Treffer</div>
 <div class="box_angaben">Zeitraum {{firstentry}} bis {{lastentry}}</div>
 
-
-
-
+<!-- Timeline -->
 <div class="timeline">
 
 {% if personen %}
-
-   <!-- <a href="#" class="previous round">&#708;</a> <br>
-    <a href="#" class="next round">&#709;</a> -->
     {% for person in personen %}
+    <!-- Jahreszahl Timeline -->
     <h2 class="timeline__item timeline__item--year">{{person.jahr}}</h2>
+    <!-- Personen Anzeige -->
     <div class="timeline__item">
         <div class="box">
             <div class="inhalt">
                 <div class="flex-container">
                     <div class="picture">
                         {% if person.picture != None %}
-                            <img src="{{ person.picture }}">
+                        <img src="{{ person.picture }}">
                         {% else %}
-                           <img src="{% static "images/avatar.jpeg" %}" alt="Kein Bild vorhanden">
+                        <img src="{% static "images/avatar.jpeg" %}" alt="Kein Bild vorhanden">
                         {% endif %}
                     </div>
                     <div class="name">
@@ -112,10 +105,11 @@
                     </div>
                 </div>
                 <br>
+                <!-- Collapsible für mehr Informationen -->
                 <button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#collapseDescription{{person.id}}">
                      &#10011
                 </button>
-                <div class="collapse" id=collapseDescription{{person.id}}>
+                <div class="collapse" id=collapseDescription{{person.id}}><!-- einzeln aufklappbar -->
                     <br>
                     <h5><b>Lebensdaten:</b> {{person.birthdayEU}} bis {{person.deathdayEU}} </h5>
                     {% if person.predecessor != None %}
@@ -130,27 +124,28 @@
                 </div>
             </div>
         </div>
-     </div>
+    </div>
     {% endfor %}
-
+<!-- Pfeile um mehrere Einträge zu überspringen -->
 <div class="btn-group-vertical scroll-buttons">
-     <button class="btn arrow" type="button" onclick="scrollUp()" title="nach oben">
+    <button class="btn arrow" type="button" onclick="scrollUp()" title="nach oben">
         <i class="fas fa-chevron-up fa-lg"></i>
     </button>
     <button class="btn arrow" type="button" onclick="scrollDown()" title="nach unten">
         <i class="fas fa-chevron-down fa-lg"></i>
     </button>
 </div>
-
+<!-- Wenn keine Treffer gefunden werden -->
 {% else %}
     <div class="box_noresult">Keine Suchergebisse</div>
     <a class="btn btn-outline-danger" href="/timeline/show">zurück</a>
 {% endif %}
 </div>
 
+<!-- Button um zum Anfang der Seite zu springen -->
 <a class="btn btn-outline-dark" href="#top">zum Anfang &uarr;</a>
 
-
+<!-- Datenbank-Update -->
 <form method="get" action="">
 <button type="submit" name="update_button" class="btn btn-outline-secondary">Datenbank-Update</button>
 {%if message != "undefined" %}
@@ -162,6 +157,7 @@
 {% endif %}
 </form>
 
+<!-- Footer -->
 <footer class="row">
     <div class="col" id="img1">
         <img src="{% static "images/Wikidata-logo-en.svg" %}" alt="Wikidata-Logo">

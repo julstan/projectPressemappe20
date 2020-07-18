@@ -27,6 +27,8 @@ function scrollDown() {
 }
 
 
+// Filter Modal
+
 $('#myModal').on('shown.bs.modal', function () {
   $('#myInput').trigger('focus')
 })
