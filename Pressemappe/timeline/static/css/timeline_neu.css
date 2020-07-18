@@ -7,7 +7,13 @@
 	 background: #F6F3F1;
 	 color: #5f464b;
 	 padding: 0;
+	 margin: 0;
 	 font-family: 'Barlow', sans-serif;
+}
+
+.container-fluid {
+    padding: 0;
+    margin: 0;
 }
 
 /* Überschrift */
@@ -24,7 +30,6 @@
      border-width: 1px;
      font-size: calc(25px + (28 - 16) * ((100vw - 320px) / (1600 - 320)));
 }
-
 
  /* h1 {
 	 text-align: center;
@@ -58,12 +63,15 @@
 }
 
 
-/* Farbe des Menüs */
+/* Filtermenü */
 
 #filtermenue {
     background: #16697a;
 }
 
+.col-12 {
+    padding: 0;
+}
 
 /* Styling der Buttons von Bootstrap */
 
@@ -360,6 +368,7 @@
 	 .timeline__item--year:nth-of-type(2n):before {
 		 display: none;
 	}
+
 }
  .timeline__title {
 	 margin: 0;
@@ -493,19 +502,16 @@ footer {
     padding: 20px 0 10px;
     text-align: center;
     background: #16697a;
-    width: 101%;
-}
-
-footer background{
-    margin-right: 90%;
+    width: 100%;
+    margin: 0;
 }
 
 footer img {
     height: auto;
 }
 
-footer .row {
-  display: flex;
+.row {
+    margin: 0 ;
 }
 
 footer .col {
@@ -522,8 +528,11 @@ footer .col {
     width: 170px;
 }
 
-#img3 img{
-    width: 85px;
+#link-box {
+    text-align: right;
+    padding: 15px 5% 0 0;
+
+
 }
 
 
