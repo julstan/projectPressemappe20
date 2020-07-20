@@ -79,6 +79,18 @@
 <div class="box_angaben">Insgesamt {{personen.count}} Treffer</div>
 <div class="box_angaben">Zeitraum {{firstentry}} bis {{lastentry}}</div>
 
+<!-- Datenbank-Update -->
+<form method="get" action="">
+<button type="submit" name="update_button" class="btn btn-outline-secondary">Datenbank-Update</button>
+{%if message != "undefined" %}
+    <br>
+<div class="box_message">{{ message }}</div>
+{% endif %}
+{% if old != "undefined" %}
+<div class="box_message" style="cursor:default;">Alte Datensätze: {{old}}</div> <div class="box_message">Neue Datensätze: {{new}}</div>
+{% endif %}
+</form>
+
 <!-- Timeline -->
 <div class="timeline">
 
@@ -146,17 +158,6 @@
 <!-- Button um zum Anfang der Seite zu springen -->
 <a class="btn btn-outline-dark" href="#top">zum Anfang &uarr;</a>
 
-<!-- Datenbank-Update -->
-<form method="get" action="">
-<button type="submit" name="update_button" class="btn btn-outline-secondary">Datenbank-Update</button>
-{%if message != "undefined" %}
-    <br>
-<div class="box_message">{{ message }}</div>
-{% endif %}
-{% if old != "undefined" %}
-<div class="box_message" style="cursor:default;">Alte Datensätze: {{old}}</div> <div class="box_message">Neue Datensätze: {{new}}</div>
-{% endif %}
-</form>
 
 <!-- Footer -->
 <footer class="row">
