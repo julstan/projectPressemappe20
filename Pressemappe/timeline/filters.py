@@ -5,6 +5,7 @@ import django_filters
 from django_filters import DateFilter, CharFilter
 from .models import *
 
+#--------------------------Muss noch besser dokumentiert werden!
 
 class DynamicChoiceMixin(object):
 
@@ -31,11 +32,16 @@ class DynamicChoiceFilter(DynamicChoiceMixin, django_filters.ChoiceFilter):
 
 
 
-class PersonFilter(django_filters.FilterSet):
+class PersonFilter(django_filters.FilterSet):  #Die Art des Filters wird hier definiert, ob Freies Suchfeld oder Dropdown + Das Design der Felder wird durch Bootstrap-Klassen angepasst
     name = CharFilter(label='Name', lookup_expr='icontains',widget=TextInput(attrs={'placeholder': 'z.B. George Washington, Thomas Jefferson', 'class': 'form-control w-100'}))
     country = DynamicChoiceFilter(label='Land', widget=Select(attrs={'class': 'form-control w-100'}))
+
+    #--------------------------Muss noch besser dokumentiert werden!
+
+    #Datum wird extra behandelt, deshalb kommt es unten nicht in fields
     StartDatum = DateFilter(label='Regierungsbeginn', field_name="position_held_startdate", lookup_expr='gte', widget=TextInput(attrs={'placeholder': 'YYYY-MM-DD', 'class': 'form-control w-100'}))  #größer und gleich als
     EndDatum = DateFilter(label='Regierungsende', field_name="position_held_enddate", lookup_expr='lte',widget=TextInput(attrs={'placeholder': 'YYYY-MM-DD', 'class': 'form-control w-100'}))  #kleiner und gleich als
+
     gender = DynamicChoiceFilter(label='Geschlecht', widget=Select(attrs={'class': 'form-control w-100'}))
     religion = DynamicChoiceFilter(label='Religion', widget=Select(attrs={'class': 'form-control w-100'}))
     position_held = DynamicChoiceFilter(label='Position', widget=Select(attrs={'class': 'form-control w-100'}))
@@ -43,8 +49,8 @@ class PersonFilter(django_filters.FilterSet):
 
     class Meta:
         model = Person
-        fields = ['name', 'position_held', 'gender', 'country', 'religion']
-        exclude = ['pm20id', 'wikidata_object']
+        fields = ['name', 'position_held', 'gender', 'country', 'religion'] #Filter die ins Template übergeben werden
+        exclude = ['pm20id', 'wikidata_object'] #Filter die nicht ins Template übergeben werden sollen
 
 
 

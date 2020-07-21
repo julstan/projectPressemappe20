@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from . import models
 from .models import Person
 import csv
-from .filters import PersonFilter
+from .filters import PersonFilter #django-filter
 
 
 
@@ -11,8 +11,7 @@ from .filters import PersonFilter
 def timeline(request):
     personen = models.Person.objects.order_by('position_held_startdate')    #Alle Personendatensätze werden nach Startdatum der Position sortiert - Julika
     myFilter = PersonFilter(request.GET, queryset=personen)
-    personen = myFilter.qs
-
+    personen = myFilter.qs   #django-filter wird übergeben
 
 
     for person in personen:
@@ -58,7 +57,7 @@ def timeline(request):
 
     context = {
         'personen': personen,
-        'myFilter': myFilter,
+        'myFilter': myFilter,       #django-filter wird übergeben
         'firstentry': firstentry,
         'lastentry': lastentry,
         'old': old,
