@@ -157,3 +157,6 @@ def update_database ():
     }
 
     return update_items
+
+def impressum(request):
+    return render(request, 'timeline/impressum.html', {})
