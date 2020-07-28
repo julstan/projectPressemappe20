@@ -162,15 +162,22 @@
 <!-- Footer -->
 <footer class="row">
     <div class="col" id="img1">
-        <img src="{% static "images/Wikidata-logo-en.svg" %}" alt="Wikidata-Logo">
+        <a href="https://www.wikidata.org/wiki/Wikidata:Main_Page" title="Zur Wikidata Website">
+            <img src="{% static "images/Wikidata-logo-en.svg" %}" alt="Wikidata-Logo">
+        </a>
     </div>
     <div class="col" id="img2">
-        <img src="{% static "images/Pressemappe20JH.png" %}" alt="Wikidata-Logo">
+        <a href="http://webopac0.hwwa.de/PresseMappe20/index.cfm" title="Zur Website der Pressemappe 20.JH">
+            <img src="{% static "images/Pressemappe20JH.png" %}" alt="Wikidata-Logo">
+        </a>
+    </div>
+    <div class="col" id="img3">
+        <a href="https://www.hdm-stuttgart.de/" title="Zur Website der HdM">
+            <img src="{% static "images/HdM.jpg" %}" alt="HdM-Logo">
+        </a>
     </div>
     <div class="col" id="link-box">
-        <a href="">Impressum?</a>
-        <br>
-        <a href="">Datenschutzerklärung?</a>
+        <a class="impressum" href="">Impressum</a>
     </div>
 </footer>
 

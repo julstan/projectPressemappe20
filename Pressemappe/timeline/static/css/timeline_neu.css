@@ -528,12 +528,28 @@ footer .col {
     width: 170px;
 }
 
-#link-box {
-    text-align: right;
-    padding: 15px 5% 0 0;
-
-
+#img3 img{
+    width: 87px;
 }
+
+#link-box {
+    font-size: 25px;
+}
+
+.impressum:link {
+    color: #ffa62b;
+    text-decoration: underline;
+}
+
+.impressum:visited {
+  color: #ffa62b;
+  text-decoration: underline;
+}
+
+.impressum:hover {
+  color: #ef767a;
+}
+
 
 
 /* Styling Filter Modal */
