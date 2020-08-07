@@ -65,7 +65,7 @@ def timeline(request):
         'message': message
     }
 
-    return render(request, "timeline/timeline_neu.html", context)
+    return render(request, "timeline/timeline.html", context)
 
 
 

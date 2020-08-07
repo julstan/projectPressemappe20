@@ -2,90 +2,188 @@
 {% block content %}
 {% load static %}
 
-<div class="sticky-top pt-3 bg-light">
-    <h1>Staatsoberhäupter Pressemappe des 20. Jahrhunderts</h1>
-<div class="row">
-    <div class="col-12">
-        <!--<div class="content">-->
-            <div class="card text-white text-center bg-info mb-3">
+
+<!-- Überschrift -->
+<div class="top-container">
+    <h1>Staatsoberhäupter der Pressemappe des 20. Jahrhunderts</h1>
+</div>
+
+<!-- Filter und Scroll Indicator fixiert -->
+<div class="sticky-top">
+<!-- Scroll Indicator -->
+ <div class="progress-container">
+    <div class="progress-bar" id="myBar"></div>
+ </div>
+    <!-- Filterbutton -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card text-center mb-3" id="filtermenue">
                 <div class="card-header">
-                    <button class="btn btn-outline-light" type="button" data-toggle="collapse" data-target="#collapseFilter" aria-expanded="true" aria-controls="collapseFilter">
+                    <button class="btn btn-outline-warning" type="button" data-toggle="modal" data-target="#Modal">
                         Filteroptionen
                     </button>
-                    <!-- falls man den Button nicht in der vollen Länge haben möchte, dann aria-expanded="false"-->
                 </div>
-                <div class="collapse show" id="collapseFilter">
-                    <div class="card-body">
-                    <form method="get">
-                        {{myFilter.form}} <!--{{myFilter.form|linebreaks}}-->
-                        <br>
-                        <!--<small>Eingabeformat: Jahr-Monat-Tag (z.B. 1900-03-22)</small><br>-->
-                        <small>Info: Bitte benutzen Sie das Format Jahr-Monat-Tag für Zeiträume
-                            </small>
-                        <br>
-                        <button class="btn btn-warning" type="submit" data-toggle="tooltip" data-placement="bottom"
-                                title="Suchfilter können kombiniert werden">Suche</button>
-                                <button class="btn btn-outline-light" href="/timeline/show">zurück</button>
-
-                    </form>
-
+                <!-- Filter Modal Header -->
+                <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true" data-backdrop="false">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="ModalLabel">Wähle die gewünschten Filter</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <!-- Modal Body -->
+                            <div class="modal-body">
+                                <div class="card-body">
+                                    <form method="get" class="form-inline">
+                                        <div class="d-flex justify-content-center flex-wrap">
+                                            <div class="form-group col-md-10">
+                                                <!-- Die einzelnen Filtermöglichkeiten -->
+                                                <label>Name: </label>
+                                                {{myFilter.form.name}}
+                                                <label>Position: </label>
+                                                {{myFilter.form.position_held}}
+                                                <label>Geschlecht: </label>
+                                                {{myFilter.form.gender}}
+                                                <label>Land: </label>
+                                                {{myFilter.form.country}}
+                                                <label>Religion: </label>
+                                                {{myFilter.form.religion}}
+                                                <label>Regierungsbeginn: </label>
+                                                {{myFilter.form.StartDatum}}
+                                                <label>Regierungsende: </label>
+                                                {{myFilter.form.EndDatum}}
+                                                <div class="d-flex justify-content-center">
+                                                    <small>Info: Bitte benutzen Sie das Format Jahr-Monat-Tag für Zeiträume</small>
+                                                </div>
+                                                <div class="searchbutton">
+                                                    <button class="btn btn-outline-warning" type="submit" data-toggle="tooltip" data-placement="bottom"
+                                                            title="Suchfilter können kombiniert werden">Suche</button>
+                                                    <a class="btn btn-outline-warning" href="/timeline/show">zurück</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-<!--</div>-->
+        </div>
     </div>
 </div>
-</div>
-<!--<button class="btn btn-success"><a href="">Deutschland</a></button>-->
 
-<div class="timeline" id="myTimeline">
+<!-- Info-Boxen -->
+<div class="box_angaben">Insgesamt {{personen.count}} Treffer</div>
+<div class="box_angaben">Zeitraum {{firstentry}} bis {{lastentry}}</div>
 
-{% if personen %}
-    <button class="btn btn-outline-light disabled" style="cursor:default;">Insgesamt {{personen.count}} Datensätze</button>
-    {% for person in personen %}
-    <h2 class="timeline__item timeline__item--year">{{person.position_held_startdate }}</h2>
-     <div class="timeline__item">
-         <h2 class="timeline__title">{{person.name}}</h2>
-       <!--<div class="flex-container">-->
-        <!--<div class="inhalt">-->
-         <!--<div class="name"> <h2>{{person.name}}</h2>-->
-
-         <hr>
-         <h4 class="center">{{person.position_held}} <br>{{person.position_held_start_EU}} bis {{person.position_held_end_EU}}</h4>
-         <hr>
-         <h5>Lebensdaten: {{person.birthdayEU}} bis {{person.deathdayEU}} </h5>
-         {% if person.predecessor != None %}
-             <h5>Vorgänger: {{person.predecessor}}</h5>
-         {% endif %}
-         {% if person.successor != None %}
-             <h5>Nachfolger: {{person.successor}}</h5>
-         {% endif %}
-         <h5>Land: {{person.country}}</h5>
-         <h5>Pressemappe-Objekt: <a href="http://webopac.hwwa.de/PresseMappe20E/Digiview_MID.cfm?mid=P{{person.pm20id|slice:'3:'}}" target="_blank">hier klicken</a></h5>
-         <h5>Wikidata-Objekt: <a href={{person.wikidata_object}} target="_blank">hier klicken</a></h5>
-         <div class="center">
-         {% if person.picture != None %}
-             <img class="image" src="{{ person.picture }}" width="100px">
-         {% else %}
-            <p>Leider kein Bild vorhanden</p>
-         {% endif %}
-         </div>
-
-
-     </div>
-
-    {% endfor %}
-{% else %}
-    <p class="btn btn-outline-light disabled" style="cursor:default;">Keine Suchergebnisse</p>
+<!-- Datenbank-Update -->
+<form method="get" action="">
+<button type="submit" name="update_button" class="btn btn-outline-secondary">Datenbank-Update</button>
+{%if message != "undefined" %}
+    <br>
+<div class="box_message">{{ message }}</div>
 {% endif %}
+{% if old != "undefined" %}
+<div class="box_message" style="cursor:default;">Alte Datensätze: {{old}}</div> <div class="box_message">Neue Datensätze: {{new}}</div>
+{% endif %}
+</form>
 
+<!-- Timeline -->
+<div class="timeline">
+
+
+<!-- Schleife zum Anzeigen der Datensätze -->
+{% if personen %}
+    {% for person in personen %}
+    <!-- Jahreszahlüberschrift -->
+    <h2 class="timeline__item timeline__item--year">{{person.jahr}}</h2>
+    <!-- Personen Anzeige -->
+    <div class="timeline__item">
+        <div class="box">
+            <div class="inhalt">
+                <div class="flex-container">
+                    <div class="picture">
+                        {% if person.picture != None %}
+                        <img src="{{ person.picture }}">
+                        {% else %}
+                        <img src="{% static "images/avatar.jpeg" %}" alt="Kein Bild vorhanden">
+                        {% endif %}
+                    </div>
+                    <div class="name">
+                        <h2>{{person.name}}</h2>
+                        <hr>
+                        <h4>{{person.position_held}} <br><hr>{{person.position_held_start_EU}} bis {{person.position_held_end_EU}}</h4>
+                        <hr>
+                    </div>
+                </div>
+                <br>
+                <!-- Collapsible für mehr Informationen -->
+                <button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#collapseDescription{{person.id}}">
+                     &#10011
+                </button>
+                <div class="collapse" id=collapseDescription{{person.id}}><!-- einzeln aufklappbar -->
+                    <br>
+                    <h5><b>Lebensdaten:</b> {{person.birthdayEU}} bis {{person.deathdayEU}} </h5>
+                    {% if person.predecessor != None %}
+                    <h5><b>Vorgänger:</b> {{person.predecessor}}</h5>
+                    {% endif %}
+                    {% if person.successor != None %}
+                    <h5><b>Nachfolger:</b> {{person.successor}}</h5>
+                    {% endif %}
+                    <h5><b>Land:</b> {{person.country}}</h5>
+                    <h5><b>Pressemappe-Objekt:</b> <a class='a'  href="http://webopac.hwwa.de/PresseMappe20E/Digiview_MID.cfm?mid=P{{person.pm20id|slice:'3:'}}" target="_blank">hier klicken</a></h5>
+                    <h5><b>Wikidata-Objekt:</b> <a class="a" href={{person.wikidata_object}} target="_blank">hier klicken</a></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+<!-- Pfeile um mehrere Einträge zu überspringen -->
+<div class="btn-group-vertical scroll-buttons">
+    <button class="btn arrow" type="button" onclick="scrollUp()" title="nach oben">
+        <i class="fas fa-chevron-up fa-lg"></i>
+    </button>
+    <button class="btn arrow" type="button" onclick="scrollDown()" title="nach unten">
+        <i class="fas fa-chevron-down fa-lg"></i>
+    </button>
+</div>
+<!-- Wenn keine Treffer gefunden werden -->
+{% else %}
+    <div class="box_noresult">Keine Suchergebisse</div>
+    <a class="btn btn-outline-danger" href="/timeline/show">zurück</a>
+{% endif %}
 </div>
 
-
-{% endblock content %}
-
-
+<!-- Button um zum Anfang der Seite zu springen -->
+<a class="btn btn-outline-dark" href="#top">zum Anfang &uarr;</a>
 
 
+<!-- Footer wurde extra für die Veröffentlichung auf Toolforge gemacht-->
+<footer class="row">
+    <div class="col" id="img1">
+        <a href="https://www.wikidata.org/wiki/Wikidata:Main_Page" title="Zur Wikidata Website">
+            <img src="{% static "images/Wikidata-logo-en.svg" target="_blank"%}" alt="Wikidata-Logo">
+        </a>
+    </div>
+    <div class="col" id="img2">
+        <a href="http://webopac0.hwwa.de/PresseMappe20/index.cfm" title="Zur Website der Pressemappe 20.JH">
+            <img src="{% static "images/Pressemappe20JH.png" target="_blank"%}" alt="Pressemappe-Logo">
+        </a>
+    </div>
+    <div class="col" id="img3">
+        <a href="https://www.hdm-stuttgart.de/"  title="Zur Website der HdM">
+            <img src="{% static "images/HdM.jpg" target="_blank" %}" alt="HdM-Logo">
+        </a>
+    </div>
+    <div class="col" id="link-box">
+        <a class="impressum" href="{% url 'timeline:impressum'  %}" >Impressum</a>
+    </div>
+</footer>
+
+
+{% endblock content%}
 
 
