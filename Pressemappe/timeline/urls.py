@@ -6,4 +6,5 @@ app_name = 'timeline'
 
 urlpatterns = [
     path('show', views.timeline, name='show'),
+    path('impressum', views.impressum, name='impressum'),
 ]

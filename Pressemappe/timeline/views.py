@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from . import models
 from .models import Person
 import csv
-from .filters import PersonFilter
+from .filters import PersonFilter #django-filter
+
 
 
 
@@ -10,8 +11,8 @@ from .filters import PersonFilter
 def timeline(request):
     personen = models.Person.objects.order_by('position_held_startdate')    #Alle Personendatensätze werden nach Startdatum der Position sortiert - Julika
     myFilter = PersonFilter(request.GET, queryset=personen)
-    personen = myFilter.qs
-    update_database()
+    personen = myFilter.qs   #django-filter wird übergeben
+
 
     for person in personen:
         person.jahr = person.position_held_startdate[:4]    #die einzelnen Jahre werden aus den ersten 4 Ziffern extrahiert
@@ -46,13 +47,34 @@ def timeline(request):
         firstentry = None
         lastentry = None
 
+    old = "undefined"
+    new = "undefined"
+    message = "undefined"
+
+    if "update_button" in request.GET:
+        try:
+            update_items = update_database()
+            old = update_items["old"]
+            new = update_items["new"]
+            message = "Datenbank-Update erfolgreich!"
+        except:
+            message = "Datenbank-Update leider nicht erfolgreich!"
+
+
     context = {
         'personen': personen,
-        'myFilter': myFilter,
+        'myFilter': myFilter,       #django-filter wird übergeben
         'firstentry': firstentry,
         'lastentry': lastentry,
+        'old': old,
+        'new': new,
+        'message': message
     }
-    return render(request, "timeline/timeline_neu.html", context)
+
+    return render(request, "timeline/timeline.html", context)
+
+
+
 
 
 def update_database ():
@@ -135,5 +157,12 @@ def update_database ():
             else:
                 count_old += 1
 
-    print ("amount old datasets: " + str (count_old))
-    print ("amount new datasets that were added to your database: " + str (count_new))
+    update_items= {
+        "old":count_old,
+        "new":count_new,
+    }
+
+    return update_items
+
+def impressum(request):
+    return render(request, 'timeline/impressum.html', {})

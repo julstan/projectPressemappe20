@@ -15,7 +15,6 @@ class Person(models.Model):
     religion = models.TextField (default = "-")
     predecessor = models.TextField (null = True)
     successor = models.TextField (null = True)
-    #eventuell hier später foreign key
     country = models.TextField ()
     position_held_start_EU = models.TextField(default=0)
     position_held_end_EU = models.TextField(default=0)
