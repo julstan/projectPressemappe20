@@ -50,17 +50,25 @@
                                                 {{myFilter.form.country}}
                                                 <label>Religion: </label>
                                                 {{myFilter.form.religion}}
-                                                <label>Regierungsbeginn: </label>
+                                                <label>Regierungsbeginn: </label>  <!--Dropdown-Liste für den Regierungsbeginn-Filter-->
                                                 {{myFilter.form.position_held_startdate}}
-                                                <label>Regierungsende: </label>
-                                                {{myFilter.form.position_held_enddate}}
-                                                <label>Regierungsbeginn: </label>
-                                                {{myFilter.form.StartDatum}}
-                                                <label>Regierungsende: </label>
-                                                {{myFilter.form.EndDatum}}
-                                                <div class="d-flex justify-content-center">
-                                                    <small>Info: Bitte benutzen Sie das Format Jahr-Monat-Tag für Zeiträume</small>
-                                                </div>
+
+
+                                                <!--Regierungsende-Filter funktioniert nicht richtig, Berechnung stimmt nicht-->
+                                                <!--<label>Regierungsende: </label>-->
+                                                <!--{{myFilter.form.position_held_enddate}}-->
+
+
+                                                <!--Filter nach dem Zeitraum als Textsuche im Format YYYY-MM-DD-->
+
+                                                <!--<label>Regierungsbeginn: </label>-->
+                                                <!--{{myFilter.form.StartDatum}}-->
+                                                <!--<label>Regierungsende: </label>-->
+                                                <!--{{myFilter.form.EndDatum}}-->
+                                                <!--<div class="d-flex justify-content-center">-->
+                                                    <!--<small>Info: Bitte benutzen Sie das Format Jahr-Monat-Tag für Zeiträume</small>-->
+                                                <!--</div>-->
+
                                                 <div class="searchbutton">
                                                     <button class="btn btn-outline-warning" type="submit" data-toggle="tooltip" data-placement="bottom"
                                                             title="Suchfilter können kombiniert werden">Suche</button>

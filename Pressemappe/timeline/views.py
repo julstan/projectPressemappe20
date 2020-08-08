@@ -18,7 +18,7 @@ def timeline(request):
         person.jahr = person.position_held_startdate[:4]    #die einzelnen Jahre werden aus den ersten 4 Ziffern extrahiert
         #position_held_start_EU - Datum im Format TT.MM.JJJJ vorher JJJJ.MM.TT
         #Die Ziffern 8-10 (Tag) werden zusammengehängt mit den Ziffern 5-7 (Monat) und dem Jahr (Ziffern 0-4). Sie werden mit Punkten dazwischen verbunden
-        person.position_held_start_EU = (person.position_held_startdate[8:10] + "." + person.position_held_startdate[5:7] + "." + person.position_held_startdate[:4])  
+        person.position_held_start_EU = (person.position_held_startdate[8:10] + "." + person.position_held_startdate[5:7] + "." + person.position_held_startdate[:4])
         #hier geschieht das selbe wie bei person.position_held_start_EU
         person.position_held_end_EU = (person.position_held_enddate[8:10] + "." + person.position_held_enddate[5:7] + "." + person.position_held_enddate[:4])
         #das selbe wie bei person.position_held_start_EU
@@ -26,7 +26,7 @@ def timeline(request):
 
         if person.deathday is not None:
             person.deathdayEU = (person.deathday[8:10] + "." + person.deathday[5:7] + "." + person.deathday[:4])
- 
+
     zeitraumanfang = []
     zeitraumende = []
     for person in personen:

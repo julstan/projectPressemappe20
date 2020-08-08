@@ -46,8 +46,8 @@ class PersonFilter(django_filters.FilterSet):  #Filterset generiert automatisch 
     country = DynamicChoiceFilter(label='Land', widget=Select(attrs={'class': 'form-control w-100'}))
 
 
-    #Datum wird extra behandelt, deshalb kommt es unten nicht in fields
-    # Freies Textfeld aber nur exaktes Datum kann gefunden werden
+    # Datum wird extra behandelt, deshalb kommt es unten nicht in fields
+    # Freies Textfeld
     # StartDatum = DateFilter(label='Regierungsbeginn', field_name="position_held_startdate", lookup_expr='gte', widget=TextInput(attrs={'placeholder': 'YYYY-MM-DD', 'class': 'form-control w-100'}))  #größer und gleich als
     # EndDatum = DateFilter(label='Regierungsende', field_name="position_held_enddate", lookup_expr='lte', widget=TextInput(attrs={'placeholder': 'YYYY-MM-DD', 'class': 'form-control w-100'}))  #kleiner und gleich als
 
