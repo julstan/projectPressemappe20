@@ -5,6 +5,7 @@ from django_filters import DateFilter, CharFilter
 from .models import *
 
 
+
 class DynamicChoiceMixin(object):    #Auswahlmöglichkeiten werden dynamisch aus dem queryset generiert
 
     @property
@@ -12,26 +13,25 @@ class DynamicChoiceMixin(object):    #Auswahlmöglichkeiten werden dynamisch aus
         queryset = self.parent.queryset
         field = super(DynamicChoiceMixin, self).field
 
-        choices = [] #Die Auswahlmöglichkeiten in der Dropdown-Liste
+        choices = []
         have = []
-        # iteriert durch die Person class in models und holt alle Werte der jeweiligen Feldnamen
-        for Person in queryset:
-            name = getattr(Person, self.field_name) #Die Feldnamen: gender, religion, country, ...
-            if name in have:
+        # iteriert durch die Personen und holt alle Werte der Dropdown-Filter s. unten
+        for Person in queryset: #Person sind die Staatsoberhäupter
+            all_values = getattr(Person, self.field_name) #all_values = alle Werte zu allen abgefragten Dropdown-Feldnamen : Bundespräsident, männlich, Deutschland, Evangelisch lutherische Kirchen, 2017-03-19
+            if all_values in have:
                 continue #Geht wieder an den Anfang der Schleife
-            have.append(name) #Hier nur neue Werte werden angehängt, damit keine Werte mehrmals vorkommen bsp. nur einmal männlich und weiblich
-            choices.append((name, name)) #name, name = Für die entsprechenden Feldnamen die Werte, die in der Dropdown-Liste zu sehen sind
-
-        #wenn die Schleife fertig ist, werden die Auswahlmöglichkeiten für die Dropdown-Liste abgespeichert
+            elif len(all_values) == 10 and "-" in all_values: #1900-03-02 hat 10-Stellen und "-", so werden nur die Datumsangaben gefiltert
+                all_values = all_values[:4] #nur das Jahr "1800" soll rausgeschrieben werden als Filtermöglichkeit
+                if all_values[:4] in have:  #prüfen auf Dopplungen
+                    continue
+            have.append(all_values) #Liste mit allen Werten nur 1x
+            choices.append((all_values, all_values)) #Liste mit allen Werten doppelt [('weiblich', 'weiblich'),('männlich','männlich')]
+                            #das erste all_values was an die Filter_query übergeben wird
+                            #das zweite all_values was man auf der Webseite sieht als Auswahlmöglichkeiten
         field.choices.choices = choices
         return field
 
- # if '-' in name and name[:4].isnumeric():
- #                    have.append(name) #Hier nur neue Werte werden angehängt, damit keine Werte mehrmals vorkommen bsp. nur einmal männlich und weiblich
- #                    choices.append((name, name[:4])) #name, name = Für die entsprechenden Feldnamen die Werte, die in der Dropdown-Liste zu sehen sind
- #                else:
- #                    have.append(name)
- #                    choices.append((name, name))
+
 
 
 class DynamicChoiceFilter(DynamicChoiceMixin, django_filters.ChoiceFilter):
@@ -53,8 +53,9 @@ class PersonFilter(django_filters.FilterSet):  #Filterset generiert automatisch 
 
     #Dropdown-Liste mit allen Datumsfomaten
     position_held_startdate = DynamicChoiceFilter(label='Regierungsbeginn', lookup_expr='gte', widget=Select(attrs={'class': 'form-control w-100'}))
+    #wird im Dropdown sortiert angezeigt, weil nach Amstsantritt sortiert -> chronologsich wie die Timeline
     position_held_enddate = DynamicChoiceFilter(label='Regierungsende', lookup_expr='lte', widget=Select(attrs={'class': 'form-control w-100'}))
-
+    #wird nicht sortiert angezeigt
 
     gender = DynamicChoiceFilter(label='Geschlecht', widget=Select(attrs={'class': 'form-control w-100'}))
     religion = DynamicChoiceFilter(label='Religion', widget=Select(attrs={'class': 'form-control w-100'}))
@@ -63,7 +64,7 @@ class PersonFilter(django_filters.FilterSet):  #Filterset generiert automatisch 
 
     class Meta:
         model = Person #hier steht unsere Model class Person
-        fields = ['name', 'position_held', 'gender', 'country', 'religion', 'position_held_startdate','position_held_enddate' ] #Filter die ins Template übergeben werden
+        fields = ['name', 'position_held', 'gender', 'country', 'religion', 'position_held_startdate', 'position_held_enddate', ] #Filter die ins Template übergeben werden
         exclude = ['pm20id', 'wikidata_object'] #Filter die nicht ins Template übergeben werden sollen
 
 
