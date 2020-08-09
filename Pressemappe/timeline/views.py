@@ -9,7 +9,7 @@ from .filters import PersonFilter #django-filter
 
 
 def timeline(request):
-    personen = models.Person.objects.order_by('position_held_startdate')    #Alle Personendatensätze werden nach Startdatum der Position sortiert - Julika
+    personen = models.Person.objects.order_by('position_held_startdate')    #Alle Personendatensätze werden nach Startdatum der Position sortiert
     myFilter = PersonFilter(request.GET, queryset=personen)
     personen = myFilter.qs   #django-filter wird übergeben
 
@@ -30,7 +30,7 @@ def timeline(request):
     zeitraumanfang = []
     zeitraumende = []
     for person in personen:
-        if person.jahr not in zeitraumanfang:
+        if person.jahr not in zeitraumanfang: 
             zeitraumanfang.append(person.jahr)
         else:
             continue

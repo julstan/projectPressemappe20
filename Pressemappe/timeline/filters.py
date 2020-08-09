@@ -54,7 +54,7 @@ class PersonFilter(django_filters.FilterSet):  #Filterset generiert automatisch 
     #Dropdown-Liste mit allen Datumsfomaten
     position_held_startdate = DynamicChoiceFilter(label='Regierungsbeginn', lookup_expr='gte', widget=Select(attrs={'class': 'form-control w-100'}))
     #wird im Dropdown sortiert angezeigt, weil nach Amstsantritt sortiert -> chronologsich wie die Timeline
-    position_held_enddate = DynamicChoiceFilter(label='Regierungsende', lookup_expr='lte', widget=Select(attrs={'class': 'form-control w-100'}))
+    #position_held_enddate = DynamicChoiceFilter(label='Regierungsende', lookup_expr='lte', widget=Select(attrs={'class': 'form-control w-100'}))
     #wird nicht sortiert angezeigt
 
     gender = DynamicChoiceFilter(label='Geschlecht', widget=Select(attrs={'class': 'form-control w-100'}))
@@ -64,7 +64,7 @@ class PersonFilter(django_filters.FilterSet):  #Filterset generiert automatisch 
 
     class Meta:
         model = Person #hier steht unsere Model class Person
-        fields = ['name', 'position_held', 'gender', 'country', 'religion', 'position_held_startdate', 'position_held_enddate', ] #Filter die ins Template übergeben werden
+        fields = ['name', 'position_held', 'gender', 'country', 'religion', 'position_held_startdate'] #Filter die ins Template übergeben werden
         exclude = ['pm20id', 'wikidata_object'] #Filter die nicht ins Template übergeben werden sollen
 
 

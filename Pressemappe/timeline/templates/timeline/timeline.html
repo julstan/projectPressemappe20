@@ -39,37 +39,8 @@
                                     <form method="get" class="form-inline">
                                         <div class="d-flex justify-content-center flex-wrap">
                                             <div class="form-group col-md-10">
-                                                <!-- Die einzelnen Filtermöglichkeiten -->
-                                                <label>Name: </label>
-                                                {{myFilter.form.name}}
-                                                <label>Position: </label>
-                                                {{myFilter.form.position_held}}
-                                                <label>Geschlecht: </label>
-                                                {{myFilter.form.gender}}
-                                                <label>Land: </label>
-                                                {{myFilter.form.country}}
-                                                <label>Religion: </label>
-                                                {{myFilter.form.religion}}
-                                                <label>Regierungsbeginn: </label>  <!--Dropdown-Liste für den Regierungsbeginn-Filter-->
-                                                {{myFilter.form.position_held_startdate}}
-
-                                                
-                                                <!--Regierungsende-Filter funktioniert nicht richtig, Berechnung stimmt nicht-->
-
-                                                <!--<label>Regierungsende: </label>-->
-                                                <!--{{myFilter.form.position_held_enddate}}-->
-
-
-                                                <!--Filter nach dem Zeitraum als Textsuche im Format YYYY-MM-DD-->
-
-                                                <!--<label>Regierungsbeginn: </label>-->
-                                                <!--{{myFilter.form.StartDatum}}-->
-                                                <!--<label>Regierungsende: </label>-->
-                                                <!--{{myFilter.form.EndDatum}}-->
-                                                <!--<div class="d-flex justify-content-center">-->
-                                                    <!--<small>Info: Bitte benutzen Sie das Format Jahr-Monat-Tag für Zeiträume</small>-->
-                                                <!--</div>-->
-
+                                                <!-- Die Filtermöglichkeiten -->
+                                                {{myFilter.form}}
                                                 <div class="searchbutton">
                                                     <br>
                                                     <button class="btn btn-outline-warning" type="submit" data-toggle="tooltip" data-placement="bottom"
