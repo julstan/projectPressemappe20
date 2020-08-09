@@ -10,8 +10,8 @@ from .filters import PersonFilter #django-filter
 
 def timeline(request):
     personen = models.Person.objects.order_by('position_held_startdate')    #Alle Personendatensätze werden nach Startdatum der Position sortiert
-    myFilter = PersonFilter(request.GET, queryset=personen)
-    personen = myFilter.qs   #django-filter wird übergeben
+    myFilter = PersonFilter(request.GET, queryset=personen) #django-filter -> myFilter erhält die einzelnen Filterfelder und den User-Input, basierend auf dem queryset
+    personen = myFilter.qs #die Einstellungen der Filter werden weitergegeben an personen im Template, s. URL
 
 
     for person in personen:
@@ -30,7 +30,7 @@ def timeline(request):
     zeitraumanfang = []
     zeitraumende = []
     for person in personen:
-        if person.jahr not in zeitraumanfang: 
+        if person.jahr not in zeitraumanfang:
             zeitraumanfang.append(person.jahr)
         else:
             continue
