@@ -1,21 +1,21 @@
 from django.forms.widgets import TextInput
 from django.forms.widgets import Select
 import django_filters
-from django_filters import DateFilter, CharFilter
+from django_filters import DateFilter, CharFilter, ChoiceFilter
 from .models import *
 
 
 
 class DynamicChoiceMixin(object):    #Auswahlmöglichkeiten werden dynamisch aus dem queryset generiert
 
-    @property
-    def field(self):
+    @property #wichtig, damit man die class DynamicChoiceMixin mit den Eigenschaften global aufrufen kann
+    def field(self): # es wird definiert was ein Feld ist vgl. in fields =
         queryset = self.parent.queryset
         field = super(DynamicChoiceMixin, self).field
 
         choices = []
         have = []
-        # iteriert durch die Personen und holt alle Werte der Dropdown-Filter s. unten
+        # iteriert durch die Personen und holt alle Werte der fields
         for Person in queryset: #Person sind die Staatsoberhäupter
             all_values = getattr(Person, self.field_name) #all_values = alle Werte zu allen abgefragten Dropdown-Feldnamen : Bundespräsident, männlich, Deutschland, Evangelisch lutherische Kirchen, 2017-03-19
             if all_values in have:
@@ -24,17 +24,17 @@ class DynamicChoiceMixin(object):    #Auswahlmöglichkeiten werden dynamisch aus
                 all_values = all_values[:4] #nur das Jahr "1800" soll rausgeschrieben werden als Filtermöglichkeit
                 if all_values[:4] in have:  #prüfen auf Dopplungen
                     continue
-            have.append(all_values) #Liste mit allen Werten nur 1x
+            have.append(all_values) #Liste mit allen Werten nur 1x - es wird auf Dopplungen überprüft und leere Werte werden nicht in die Liste mitaufgenommen
             choices.append((all_values, all_values)) #Liste mit allen Werten doppelt [('weiblich', 'weiblich'),('männlich','männlich')]
                             #das erste all_values was an die Filter_query übergeben wird
                             #das zweite all_values was man auf der Webseite sieht als Auswahlmöglichkeiten
-        field.choices.choices = choices
+        field.choices.choices = choices #dem richtigen Feld, werden die richtigen Auswahlmöglichkeiten zugeordnet
         return field
 
 
 
 
-class DynamicChoiceFilter(DynamicChoiceMixin, django_filters.ChoiceFilter):
+class DynamicChoiceFilter(DynamicChoiceMixin, ChoiceFilter):
     pass
 
 
@@ -46,7 +46,7 @@ class PersonFilter(django_filters.FilterSet):  #Filterset generiert automatisch 
     country = DynamicChoiceFilter(label='Land', widget=Select(attrs={'class': 'form-control w-100'}))
 
 
-    # Datum wird extra behandelt, deshalb kommt es unten nicht in fields
+    # Datum hier wird extra behandelt, deshalb kommt es unten nicht in fields, sondern es muss hier das field_name in der Definition übergeben werden
     # Freies Textfeld
     # StartDatum = DateFilter(label='Regierungsbeginn', field_name="position_held_startdate", lookup_expr='gte', widget=TextInput(attrs={'placeholder': 'YYYY-MM-DD', 'class': 'form-control w-100'}))  #größer und gleich als
     # EndDatum = DateFilter(label='Regierungsende', field_name="position_held_enddate", lookup_expr='lte', widget=TextInput(attrs={'placeholder': 'YYYY-MM-DD', 'class': 'form-control w-100'}))  #kleiner und gleich als
