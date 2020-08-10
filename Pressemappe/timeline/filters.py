@@ -18,18 +18,19 @@ class DynamicChoiceMixin(object):    #Auswahlmöglichkeiten werden dynamisch aus
         # iteriert durch die Personen und holt alle Werte der fields
         for Person in queryset: #Person sind die Staatsoberhäupter
             all_values = getattr(Person, self.field_name) #all_values = alle Werte zu allen abgefragten Dropdown-Feldnamen : Bundespräsident, männlich, Deutschland, Evangelisch lutherische Kirchen, 2017-03-19
-            if all_values in have:
-                continue #Geht wieder an den Anfang der Schleife
+            if all_values in have: #prüfen auf Dopplungen
+                continue
             elif len(all_values) == 10 and "-" in all_values: #1900-03-02 hat 10-Stellen und "-", so werden nur die Datumsangaben gefiltert
                 all_values = all_values[:4] #nur das Jahr "1800" soll rausgeschrieben werden als Filtermöglichkeit
-                if all_values[:4] in have:  #prüfen auf Dopplungen
+                if all_values[:4] in have:  #prüfen auf Dopplungen bei den Jahren
                     continue
             have.append(all_values) #Liste mit allen Werten nur 1x - es wird auf Dopplungen überprüft und leere Werte werden nicht in die Liste mitaufgenommen
             choices.append((all_values, all_values)) #Liste mit allen Werten doppelt [('weiblich', 'weiblich'),('männlich','männlich')]
-                            #das erste all_values was an die Filter_query übergeben wird
+                            #das erste all_values was an die Filter_query übergeben wird s. URL
+
                             #das zweite all_values was man auf der Webseite sieht als Auswahlmöglichkeiten
         field.choices.choices = choices #dem richtigen Feld, werden die richtigen Auswahlmöglichkeiten zugeordnet
-        return field
+        return field #ChoiceField für die fünf Dropdowns die wir benutzen
 
 
 
@@ -65,7 +66,7 @@ class PersonFilter(django_filters.FilterSet):  #Filterset generiert automatisch 
     class Meta:
         model = Person #hier steht unsere Model class Person
         fields = ['name', 'position_held', 'gender', 'country', 'religion', 'position_held_startdate'] #Filter die ins Template übergeben werden
-        exclude = ['pm20id', 'wikidata_object'] #Filter die nicht ins Template übergeben werden sollen
+        exclude = ['pm20id', 'wikidata_object', ] #Filter die nicht ins Template übergeben werden sollen
 
 
 

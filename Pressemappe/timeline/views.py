@@ -26,6 +26,7 @@ def timeline(request):
 
         if person.deathday is not None:
             person.deathdayEU = (person.deathday[8:10] + "." + person.deathday[5:7] + "." + person.deathday[:4])
+        person.save()
 
     zeitraumanfang = []
     zeitraumende = []
@@ -44,8 +45,8 @@ def timeline(request):
         firstentry = zeitraumanfang[0]
         lastentry = zeitraumende[-1]
     else:
-        firstentry = None
-        lastentry = None
+        firstentry = "-"
+        lastentry = "-"
 
     old = "undefined"
     new = "undefined"
