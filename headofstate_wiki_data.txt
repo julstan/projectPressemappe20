@@ -1,25 +1,43 @@
- SELECT ?pm20idLabel ?person ?personLabel ?birthday ?deathday ?picture ?position_heldLabel ?start ?end ?countryLabel ?genderLabel ?replacedbyLabel ?predecessorLabel ?religionLabel ?workCountLabel
- WHERE {
+SELECT ?pm20idLabel ?person ?personLabel ?birthday ?deathday ?picture ?position_heldLabel ?start ?end ?countryLabel ?genderLabel ?replacedbyLabel ?predecessorLabel ?religionLabel ?workCountLabel
+WHERE {
   ?person wdt:P4293 ?pm20id.
+    #alle Personen die eine pm20id haben
   ?person p:P4293/pq:P5592 ?workCount .
+    #Anzahl der Werke die in der Pressemappe zu der Person verfügbar sind
   OPTIONAL {?person wdt:P569 ?birthday} .
+    #Geburtsdatum
   OPTIONAL {?person wdt:P570 ?deathday }.
+    #Sterbedatum
   OPTIONAL {?person wdt:P18 ?picture } .
+    #Link zu einem Bild der Person
   OPTIONAL {?person wdt:P21 ?gender } .
+    #Geschlecht
   OPTIONAL {?person wdt:P140 ?religion } .
+    #Religionszugehörigkeit
 
-  ?person p:P39 ?s.  # ?s is the the statement node
-           ?s ps:P39  ?position_held.  # that simulates the predicate
+  ?person p:P39 ?s.
+    #bestimmte Position auswählen
+  ?s ps:P39  ?position_held.
+    #Bezeichnung der Position herausfiltern
 
-   {
-           ?position_held wdt:P279 wd:Q2285706 .}
-    UNION
-          { ?position_held wdt:P279 wd:Q48352 .}
-           ?position_held wdt:P17 ?country .
-           ?s pq:P580 ?start.  # this is an attribute (a qualifier)
-           OPTIONAL{?s pq:P582 ?end.}
-           OPTIONAL {?s pq:P1366 ?replacedby} .
-           OPTIONAL {?s pq:P1365 ?predecessor} .
+  #UNION führt 2 Tabellen zusammen: die Tabelle mit Regirungschefs und die Tabelle mit Staatsoberhäuptern
+  {?position_held wdt:P279 wd:Q2285706 .}
+    #Positionen herausfiltern, die als "Regierungschef" klassifiziert sind
+  UNION
+  {?position_held wdt:P279 wd:Q48352 .}
+    #Positionen herausfiltern, die als "Staatsoberhaupt" klassifiziert sind
+  
+  ?position_held wdt:P17 ?country .
+    #gibt das Land/die Länder zurück in denen die Position besetzt war/ist
+  ?s pq:P580 ?start.
+    #Datum des Beginns der Amtszeit
+  OPTIONAL{?s pq:P582 ?end.}
+    #Datum des Endes der Amtszeit
+  OPTIONAL {?s pq:P1366 ?replacedby} .
+    #Nachfolger im Amt
+  OPTIONAL {?s pq:P1365 ?predecessor} .
+    #Vorgänger im Amt
 
   SERVICE wikibase:label { bd:serviceParam wikibase:language "de, en, fr, es, nl, pl, ru". }
- } ORDER BY ?genderLabel
+    #für manche Felder sind z.B. nur Label auf französisch verfügbar -> daher die unterschiedlichen Sprachen
+ }
