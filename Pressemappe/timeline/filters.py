@@ -1,7 +1,7 @@
 from django.forms.widgets import TextInput
 from django.forms.widgets import Select
 import django_filters
-from django_filters import DateFilter, CharFilter, ChoiceFilter
+from django_filters import CharFilter, ChoiceFilter
 from .models import *
 
 

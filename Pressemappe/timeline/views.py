@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from . import models
 from .models import Person
 import csv
@@ -26,28 +26,31 @@ def timeline(request):
 
         if person.deathday is not None:
             person.deathdayEU = (person.deathday[8:10] + "." + person.deathday[5:7] + "." + person.deathday[:4])
-        person.save()
+        person.save() #EU-Daten werden in der Datenbank abgespeichert
 
+    # Zeitraumanzeige vgl. im Template: Zeitraum {{firstentry}} bis {{lastentry}}
     zeitraumanfang = []
     zeitraumende = []
     for person in personen:
         if person.jahr not in zeitraumanfang:
-            zeitraumanfang.append(person.jahr)
+            zeitraumanfang.append(person.jahr) #Alle Regierungsbeginnjahre werden in einer Liste abgespeichert
         else:
             continue
-        if person.position_held_enddate[:4] not in zeitraumende:
+        if person.position_held_enddate[:4] not in zeitraumende: #Alle Regierungsendejahre werden in einer Liste abgespeichert
               zeitraumende.append(person.position_held_enddate[:4])
         else:
             continue
     zeitraumanfang.sort()
     zeitraumende.sort()
     if len(zeitraumanfang) != 0:
-        firstentry = zeitraumanfang[0]
-        lastentry = zeitraumende[-1]
+        firstentry = zeitraumanfang[0] #Der erste Eintrag aus der Liste wird abgespeichert
+        lastentry = zeitraumende[-1]   #Der letzte Eintrag aus der Liste wird abgespeichert
     else:
         firstentry = "-"
         lastentry = "-"
 
+
+#------Datenbank-Update Funktion ab hier---------
     old = "undefined"
     new = "undefined"
     message = "undefined"
@@ -60,16 +63,16 @@ def timeline(request):
             message = "Datenbank-Update erfolgreich!"
         except:
             message = "Datenbank-Update leider nicht erfolgreich!"
-
+#-------Datenbank-Update Funktion Ende-----------
 
     context = {
         'personen': personen,
         'myFilter': myFilter,       #django-filter wird übergeben
-        'firstentry': firstentry,
-        'lastentry': lastentry,
-        'old': old,
-        'new': new,
-        'message': message
+        'firstentry': firstentry,   #Zeitraumanzeige
+        'lastentry': lastentry,     #Zeitraumanzeige
+        'old': old,                 #Datenbank-Update
+        'new': new,                 #Datenbank-Update
+        'message': message          #Datenbank-Update
     }
 
     return render(request, "timeline/timeline.html", context)
